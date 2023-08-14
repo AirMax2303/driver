@@ -3,11 +3,13 @@ import 'package:driver/widget/widgets.dart';
 import 'package:flutter/material.dart';
 
 import '../auth/login.dart';
-import '../models/model.dart';
+import '../models/defs.dart';
+import '../models/driver.dart';
 
 class Step2 extends StatelessWidget {
-  Step2({Key? key, required this.driver}) : super(key: key);
-  Driver driver;
+  Step2({Key? key, required this.defs, required this.driver}) : super(key: key);
+  DefsModel defs;
+  DriverModel driver;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class Step2 extends StatelessWidget {
                         AppButton.button16(
                           'Воыйти',
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(defs: defs,)));
                           },
                         )
                       ],
@@ -69,17 +71,17 @@ class Step2 extends StatelessWidget {
                                 AppText.blackText16('Пароль*',),
                                 TextFormField(
                                   decoration: const InputDecoration(hintText: 'Придумайте пароль'),
-                                  onChanged: (value) {driver.password = value;},
+                                  onChanged: (value) {driver = driver.copyWith(password: value);},
                                 ),
                                 AppText.blackText16('Город*',),
                                 TextFormField(
                                   decoration: const InputDecoration(hintText: 'Выберите город'),
-                                  onChanged: (value) {driver.town = value;},
+                                  onChanged: (value) {driver = driver.copyWith(town: value);},
                                 ),
                                 AppText.blackText16('Реферальный код',),
                                 TextFormField(
                                   decoration: const InputDecoration(hintText: 'Введите Реферальный код'),
-                                  onChanged: (value) {driver.refcode = value;},
+                                  onChanged: (value) {driver = driver.copyWith(refcode: value);},
                                 ),
                               ],
                             ),
@@ -91,7 +93,7 @@ class Step2 extends StatelessWidget {
                               child: Column(
                                 children: [
                                   AppButton.filledButton('Далее', onPressed: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => Step3(driver: driver,)));
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => Step3(defs: defs, driver: driver,)));
                                   }),
                                   AppSixeBox.size20
                                 ],

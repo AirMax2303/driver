@@ -1,13 +1,13 @@
-import 'package:driver/models/client.dart';
 import 'package:flutter/material.dart';
 
+import '../Service/defs_service.dart';
+import '../models/client.dart';
 import '../models/defs.dart';
 import '../widget/input_text.dart';
 import '../widget/widgets.dart';
-import 'client_step2.dart';
 
-class ClientStep1 extends StatelessWidget {
-  ClientStep1({Key? key, required this.defs, required this.client}) : super(key: key);
+class ClientStep2 extends StatelessWidget {
+  ClientStep2({Key? key, required this.defs, required this.client,}) : super(key: key);
   DefsModel defs;
   ClientModel client;
 
@@ -31,18 +31,19 @@ class ClientStep1 extends StatelessWidget {
                     AppButton.button16('Воыйти', onPressed: () {},)
                   ],
                 ),
-                const SizedBox(height: 50,),
-                AppText.blackText20('Подтверждение номера',),
+                const SizedBox(height: 30,),
+                AppText.blackText20('Регистрация аккаунта',),
                 const SizedBox(height: 20,),
-                AppText.blackText16('Введите номер телефона и мы отправим',),
-                AppText.blackText16('вам код с письмом через SMS',),
-                const SizedBox(height: 40,),
-                TextFormFieldBox('Номер телефона*', hintText: '+7 917 999-99-99-99', onChanged: (value) {client = client.copyWith(phone: value);},),
+                TextFormFieldBox('Имя*', hintText: 'Введите имя', onChanged: (value) {client = client.copyWith(firstName: value);},),
                 const SizedBox(height: 20,),
-                AppButton.filledButton('Отправить код подтверждения',
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => ClientStep2(defs: defs, client: client,)));
-                    }),
+                TextFormFieldBox('Фамилия*', hintText: 'Иванов', onChanged: (value) {client = client.copyWith(lastName: value);},),
+                const SizedBox(height: 20,),
+                TextFormFieldBox('Пароль*', hintText: 'Введите пароль', onChanged: (value) {client = client.copyWith(password: value);},),
+                const SizedBox(height: 20,),
+                AppButton.filledButton('Зарегистрироваться', onPressed: () {
+                  final DefsService service = DefsService();
+                  service.saveDefs('client', defs);
+                }),
               ],
             ),
           ),

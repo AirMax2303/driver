@@ -1,16 +1,13 @@
-import 'package:driver/questionnaire/step1.dart';
-import 'package:driver/questionnaire/step2.dart';
-import 'package:driver/widget/widgets.dart';
 import 'package:flutter/material.dart';
 
-import '../models/defs.dart';
-import '../models/driver.dart';
+import '../models/db.dart';
+import '../models/model.dart';
 import '../widget/pin.dart';
+import '../widget/widgets.dart';
+import 'client_grafic.dart';
 
-class StepSMS extends StatelessWidget {
-  StepSMS({Key? key, required this.defs, required this.driver}) : super(key: key);
-  DefsModel defs;
-  late DriverModel driver;
+class ClientPinAuthPage extends StatelessWidget {
+  ClientPinAuthPage({Key? key}) : super(key: key);
   var pin = <String>['', '', '', ''];
   int _pin = 0;
   late final ValueNotifier<bool> _pinChenge = ValueNotifier<bool>(true);
@@ -27,33 +24,15 @@ class StepSMS extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SizedBox(
+              Container(
                 width: double.infinity,
                 height: 192,
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconButton(
-                            onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => Step1(defs: defs, driver: driver)));
-                            },
-                            color: const Color(0xFFDFDDF5), icon: Image.asset('assets/Vector.png')),
-                      ],
-                    ),
-                    AppSixeBox.size20,
-                    AppText.blackText20(
-                      'Мы отправили вам СМС код',
-                    )
-                  ],
-                ),
+                child: Center(child: AppText.blackText20('Задайте код авторизации в приложении ',)),
               ),
               Expanded(
                 child: Container(
                   decoration:
-                      const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+                  const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     child: ValueListenableBuilder(
@@ -72,8 +51,6 @@ class StepSMS extends StatelessWidget {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       AppSixeBox.size20,
-                                      AppText.blackText18('На номер:${driver.phone!}'),
-                                      AppSixeBox.size20,
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -83,10 +60,6 @@ class StepSMS extends StatelessWidget {
                                           PinBox(data: pin[2]),
                                           PinBox(data: pin[3]),
                                         ],
-                                      ),
-                                      AppSixeBox.size20,
-                                      AppText.blackText16(
-                                        'Повторная отправка будет возможна через: 56 секунд',
                                       ),
                                       AppSixeBox.size20,
                                       PinKeyboard(
@@ -108,13 +81,7 @@ class StepSMS extends StatelessWidget {
                                           pin[_pin] = number.toString();
                                           _pin = _pin + 1;
                                           if (_pin == 4) {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) => Step2(
-                                                          defs: defs,
-                                                          driver: driver,
-                                                        )));
+                                            Navigator.push(context, MaterialPageRoute(builder: (context) => ClientGrafic(grafics: grafics, drivers: drivers,)));
                                           } else {
                                             _pinChenge.value = !_pinChenge.value;
                                           }
@@ -137,5 +104,3 @@ class StepSMS extends StatelessWidget {
     );
   }
 }
-
-//Navigator.push(context, MaterialPageRoute(builder: (context) => Step2(driver: Driver(),)));

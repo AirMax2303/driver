@@ -1,15 +1,16 @@
-import 'package:driver/questionnaire/step3.dart';
 import 'package:driver/questionnaire/step5.dart';
 import 'package:driver/questionnaire/step7.dart';
 import 'package:driver/widget/widgets.dart';
 import 'package:flutter/material.dart';
 
 import '../auth/login.dart';
-import '../models/model.dart';
+import '../models/defs.dart';
+import '../models/driver.dart';
 
 class Step6 extends StatelessWidget {
-  Step6({Key? key, required this.driver}) : super(key: key);
-  Driver driver;
+  Step6({Key? key, required this.defs, required this.driver}) : super(key: key);
+  DefsModel defs;
+  late DriverModel driver;
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +34,12 @@ class Step6 extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconButton(onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Step5(driver: driver,)));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Step5(defs: defs, driver: driver,)));
                         }, color: const Color(0xFFDFDDF5), icon: Image.asset('assets/Vector.png')),
                         AppButton.button16(
                           'Воыйти',
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(defs: defs,)));
                           },
                         )
                       ],
@@ -74,13 +75,13 @@ class Step6 extends StatelessWidget {
                                 TextFormField(
                                   maxLines: 5,
                                   decoration: const InputDecoration(hintText: 'Ваши действия?'),
-                                  onChanged: (value) {driver.question_1 = value;},
+                                  onChanged: (value) {driver = driver.copyWith(question1: value);},
                                 ),
                                 AppText.blackText16('Ребенок отказывается пристегивать ремень безопасности в автомобиле.',),
                                 TextFormField(
                                   maxLines: 5,
                                   decoration: const InputDecoration(hintText: 'Ваши действия?'),
-                                  onChanged: (value) {driver.question_2 = value;},
+                                  onChanged: (value) {driver = driver.copyWith(question2: value);},
                                 ),
                               ],
                             ),
@@ -92,7 +93,7 @@ class Step6 extends StatelessWidget {
                               child: Column(
                                 children: [
                                   AppButton.filledButton('Далее', onPressed: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => Step7(driver: driver,)));
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => Step7(defs: defs, driver: driver,)));
                                   }),
                                   AppSixeBox.size20
                                 ],

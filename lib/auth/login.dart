@@ -2,8 +2,11 @@ import 'package:driver/auth/pinauth.dart';
 import 'package:driver/widget/widgets.dart';
 import 'package:flutter/material.dart';
 
+import '../models/defs.dart';
+
 class LoginPage extends StatelessWidget {
-  LoginPage({Key? key}) : super(key: key);
+  LoginPage({Key? key, required this.defs}) : super(key: key);
+  DefsModel defs;
   String phone = '';
 
   @override
@@ -62,7 +65,7 @@ class LoginPage extends StatelessWidget {
                           child: Column(
                             children: [
                               AppButton.filledButton('Войти', onPressed: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => PinAuthPage()));
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => PinAuthPage(defs: defs,)));
                               }),
                               AppSixeBox.size20
                             ],

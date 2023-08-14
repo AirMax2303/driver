@@ -6,11 +6,13 @@ import 'package:driver/widget/widgets.dart';
 import 'package:flutter/material.dart';
 
 import '../auth/login.dart';
-import '../models/model.dart';
+import '../models/defs.dart';
+import '../models/driver.dart';
 
 class Step9 extends StatelessWidget {
-  Step9({Key? key, required this.driver}) : super(key: key);
-  Driver driver;
+  Step9({Key? key, required this.defs, required this.driver}) : super(key: key);
+  DefsModel defs;
+  late DriverModel driver;
 
   @override
   Widget build(BuildContext context) {
@@ -38,13 +40,14 @@ class Step9 extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => Step8(
+                                            defs: defs,
                                             driver: driver,
                                           )));
                             }, color: const Color(0xFFDFDDF5), icon: Image.asset('assets/Vector.png')),
                         AppButton.button16(
                           'Воыйти',
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(defs: defs,)));
                           },
                         )
                       ],
@@ -80,7 +83,7 @@ class Step9 extends StatelessWidget {
                                 TextFormField(
                                   maxLines: 10,
                                   decoration: const InputDecoration(hintText: 'Ваши действия пошагово?'),
-                                  onChanged: (value) {driver.question_7 = value;},
+                                  onChanged: (value) {driver = driver.copyWith(question7: value);},
                                 ),
                               ],
                             ),

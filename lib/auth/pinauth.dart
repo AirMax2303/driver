@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
+import '../Service/defs_service.dart';
+import '../driver/driver_page.dart';
+import '../models/defs.dart';
 import '../models/model.dart';
 import '../widget/pin.dart';
 import '../widget/widgets.dart';
 
 class PinAuthPage extends StatelessWidget {
-  PinAuthPage({Key? key}) : super(key: key);
+  PinAuthPage({Key? key, required this.defs}) : super(key: key);
+  DefsModel defs;
   var pin = <String>['', '', '', ''];
   int _pin = 0;
   late final ValueNotifier<bool> _pinChenge = ValueNotifier<bool>(true);
@@ -25,12 +29,15 @@ class PinAuthPage extends StatelessWidget {
               Container(
                 width: double.infinity,
                 height: 192,
-                child: Center(child: AppText.blackText20('Задайте код авторизации в приложении ',)),
+                child: Center(
+                    child: AppText.blackText20(
+                  'Задайте код авторизации в приложении ',
+                )),
               ),
               Expanded(
                 child: Container(
                   decoration:
-                  const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+                      const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     child: ValueListenableBuilder(
@@ -78,7 +85,14 @@ class PinAuthPage extends StatelessWidget {
                                         click: (int number) {
                                           pin[_pin] = number.toString();
                                           _pin = _pin + 1;
-                                          if (_pin == 4) {} else {
+                                          if (_pin == 4) {
+                                            if (defs.pin!.isEmpty) {
+                                              final DefsService service = DefsService();
+                                              service.saveDefs(
+                                                  'driver', DefsModel(id: defs.id, pin: pin[0] + pin[1] + pin[2] + pin[3]));
+                                            }
+                                            Navigator.push(context, MaterialPageRoute(builder: (context) => const DriverPage()));
+                                          } else {
                                             _pinChenge.value = !_pinChenge.value;
                                           }
                                         },
