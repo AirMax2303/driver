@@ -2,15 +2,14 @@ import 'package:driver/questionnaire/step3.dart';
 import 'package:driver/questionnaire/step5.dart';
 import 'package:driver/widget/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
+import '../Service/driver_service.dart';
 import '../auth/login.dart';
-import '../models/defs.dart';
-import '../models/driver.dart';
 
 class Step4 extends StatelessWidget {
-  Step4({Key? key, required this.defs, required this.driver}) : super(key: key);
-  DefsModel defs;
-  late DriverModel driver;
+  Step4({Key? key}) : super(key: key);
+  final DriverService service = GetIt.instance.get<DriverService>();
 
   @override
   Widget build(BuildContext context) {
@@ -34,12 +33,12 @@ class Step4 extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconButton(onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Step3(defs: defs, driver: driver,)));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Step3()));
                         }, color: const Color(0xFFDFDDF5), icon: Image.asset('assets/Vector.png')),
                         AppButton.button16(
                           'Воыйти',
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(defs: defs,)));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
                           },
                         )
                       ],
@@ -74,32 +73,32 @@ class Step4 extends StatelessWidget {
                                 AppText.blackText16('Марка авто*',),
                                 TextFormField(
                                   decoration: const InputDecoration(hintText: 'Mercedes'),
-                                  onChanged: (value) {driver = driver.copyWith(carbrand: value);},
+                                  onChanged: (value) {service.driver = service.driver.copyWith(carbrand: value);},
                                 ),
                                 AppText.blackText16('Модель авто*',),
                                 TextFormField(
                                   decoration: const InputDecoration(hintText: 'Введите модель'),
-                                  onChanged: (value) {driver = driver.copyWith(carmodel: value);},
+                                  onChanged: (value) {service.driver = service.driver.copyWith(carmodel: value);},
                                 ),
                                 AppText.blackText16('Цвет*',),
                                 TextFormField(
                                   decoration: const InputDecoration(hintText: 'Введите цвет'),
-                                  onChanged: (value) {driver = driver.copyWith(carcolor: value);},
+                                  onChanged: (value) {service.driver = service.driver.copyWith(carcolor: value);},
                                 ),
                                 AppText.blackText16('Год выпуска*',),
                                 TextFormField(
                                   decoration: const InputDecoration(hintText: '____'),
-                                  onChanged: (value) {driver = driver.copyWith(caryear: value);},
+                                  onChanged: (value) {service.driver = service.driver.copyWith(caryear: value);},
                                 ),
                                 AppText.blackText16('Госномер*',),
                                 TextFormField(
                                   decoration: const InputDecoration(hintText: 'Введите госномер'),
-                                  onChanged: (value) {driver = driver.copyWith(carNP: value);},
+                                  onChanged: (value) {service.driver = service.driver.copyWith(carNP: value);},
                                 ),
                                 AppText.blackText16('СТС*',),
                                 TextFormField(
                                   decoration: const InputDecoration(hintText: 'Введите номер документа'),
-                                  onChanged: (value) {driver = driver.copyWith(carCTC: value);},
+                                  onChanged: (value) {service.driver = service.driver.copyWith(carCTC: value);},
                                 ),
                               ],
                             ),
@@ -111,7 +110,7 @@ class Step4 extends StatelessWidget {
                               child: Column(
                                 children: [
                                   AppButton.filledButton('Далее', onPressed: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => Step5(defs: defs, driver: driver,)));
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => Step5()));
                                   }),
                                   AppSixeBox.size20
                                 ],

@@ -1,18 +1,19 @@
-import 'package:driver/questionnaire/step1.dart';
-import 'package:driver/questionnaire/step2.dart';
-import 'package:driver/widget/widgets.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
-import '../Service/driver_service.dart';
+import '../Service/client_service.dart';
+import '../models/driver.dart';
 import '../widget/pin.dart';
+import '../widget/widgets.dart';
+import 'client_step2.dart';
 
-class StepSMS extends StatelessWidget {
-  StepSMS({Key? key}) : super(key: key);
-  final DriverService service = GetIt.instance.get<DriverService>();
+class ClientSMS extends StatelessWidget {
+  ClientSMS({Key? key}) : super(key: key);
   var pin = <String>['', '', '', ''];
   int _pin = 0;
   late final ValueNotifier<bool> _pinChenge = ValueNotifier<bool>(true);
+  final ClientService service = GetIt.instance.get<ClientService>();
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,7 @@ class StepSMS extends StatelessWidget {
                       children: [
                         IconButton(
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => Step1()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => ClientStep2()));
                             },
                             color: const Color(0xFFDFDDF5), icon: Image.asset('assets/Vector.png')),
                       ],
@@ -52,7 +53,7 @@ class StepSMS extends StatelessWidget {
               Expanded(
                 child: Container(
                   decoration:
-                      const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+                  const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     child: ValueListenableBuilder(
@@ -71,7 +72,7 @@ class StepSMS extends StatelessWidget {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       AppSixeBox.size20,
-                                      AppText.blackText18('На номер:${service.driver.phone!}'),
+                                      AppText.blackText18('На номер: ${service.client.phone}'),
                                       AppSixeBox.size20,
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -110,7 +111,7 @@ class StepSMS extends StatelessWidget {
                                             Navigator.push(
                                                 context,
                                                 MaterialPageRoute(
-                                                    builder: (context) => Step2()));
+                                                    builder: (context) => ClientStep2()));
                                           } else {
                                             _pinChenge.value = !_pinChenge.value;
                                           }
@@ -133,5 +134,3 @@ class StepSMS extends StatelessWidget {
     );
   }
 }
-
-//Navigator.push(context, MaterialPageRoute(builder: (context) => Step2(driver: Driver(),)));

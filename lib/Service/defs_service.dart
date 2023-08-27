@@ -1,29 +1,35 @@
 import 'dart:convert';
-
 import 'package:driver/models/defs.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 
 class DefsService {
+  var uuid = const Uuid();
+  late DefsModel defs = const DefsModel();
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
-  Future<DefsModel> getDefs(String key) async {
+//  String get pin => defs.pin;
+//  set pin(String value) => defs = defs.copyWith(pin: value);
+
+  Future<DefsModel?> getDefs(String key) async {
     final SharedPreferences prefs = await _prefs;
-    final String? defs = prefs.getString(key);
-    if (defs == null) {
-      var uuid = const Uuid();
-      return DefsModel(id: uuid.v1(), pin: '');
+    final String? _defs = prefs.getString(key);
+    if (_defs == null) {
+      defs = DefsModel(id: uuid.v1(), pin: '');
     } else {
-      return DefsModel.fromJson(jsonDecode(defs));
+      defs = DefsModel.fromJson(jsonDecode(_defs));
     }
+    return defs;
   }
 
-  Future<void> saveDefs(String key, DefsModel value) async {
+  Future<void> setDefs(String key) async {
     final SharedPreferences prefs = await _prefs;
-    final String? defs = prefs.getString(key);
-    if (defs != null) {
-      prefs.remove('key');
+    if (prefs.getString(key) != null) {
+      prefs.remove(key);
     }
-    prefs.setString(key, jsonEncode(value.toJson()));
+    if (defs.id.isEmpty) {
+      defs = DefsModel(id: uuid.v1(), pin: '');
+    }
+    prefs.setString(key, jsonEncode(defs.toJson()));
   }
 }

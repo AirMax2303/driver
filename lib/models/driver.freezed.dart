@@ -20,36 +20,36 @@ DriverModel _$DriverModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DriverModel {
-  String? get id => throw _privateConstructorUsedError;
-  String? get phone => throw _privateConstructorUsedError;
-  String? get password => throw _privateConstructorUsedError;
-  String? get town => throw _privateConstructorUsedError;
-  String? get refcode => throw _privateConstructorUsedError;
-  String? get country => throw _privateConstructorUsedError;
-  String? get surname => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  String? get numberDL => throw _privateConstructorUsedError;
-  String? get dateDL => throw _privateConstructorUsedError;
-  String? get carbrand => throw _privateConstructorUsedError;
-  String? get carmodel => throw _privateConstructorUsedError;
-  String? get carcolor => throw _privateConstructorUsedError;
-  String? get caryear => throw _privateConstructorUsedError;
-  String? get carNP => throw _privateConstructorUsedError;
-  String? get carCTC => throw _privateConstructorUsedError;
-  String? get carType => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  String? get age => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
-  String? get video => throw _privateConstructorUsedError;
-  String? get question => throw _privateConstructorUsedError;
-  String? get question0 => throw _privateConstructorUsedError;
-  String? get question1 => throw _privateConstructorUsedError;
-  String? get question2 => throw _privateConstructorUsedError;
-  String? get question3 => throw _privateConstructorUsedError;
-  String? get question4 => throw _privateConstructorUsedError;
-  String? get question5 => throw _privateConstructorUsedError;
-  String? get question6 => throw _privateConstructorUsedError;
-  String? get question7 => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get phone => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
+  String get town => throw _privateConstructorUsedError;
+  String get refcode => throw _privateConstructorUsedError;
+  String get country => throw _privateConstructorUsedError;
+  String get surname => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get numberDL => throw _privateConstructorUsedError;
+  String get dateDL => throw _privateConstructorUsedError;
+  String get carbrand => throw _privateConstructorUsedError;
+  String get carmodel => throw _privateConstructorUsedError;
+  String get carcolor => throw _privateConstructorUsedError;
+  String get caryear => throw _privateConstructorUsedError;
+  String get carNP => throw _privateConstructorUsedError;
+  String get carCTC => throw _privateConstructorUsedError;
+  String get carType => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  String get age => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
+  String get video => throw _privateConstructorUsedError;
+  String get question => throw _privateConstructorUsedError;
+  String get question0 => throw _privateConstructorUsedError;
+  String get question1 => throw _privateConstructorUsedError;
+  String get question2 => throw _privateConstructorUsedError;
+  String get question3 => throw _privateConstructorUsedError;
+  String get question4 => throw _privateConstructorUsedError;
+  String get question5 => throw _privateConstructorUsedError;
+  String get question6 => throw _privateConstructorUsedError;
+  String get question7 => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -64,36 +64,36 @@ abstract class $DriverModelCopyWith<$Res> {
       _$DriverModelCopyWithImpl<$Res, DriverModel>;
   @useResult
   $Res call(
-      {String? id,
-      String? phone,
-      String? password,
-      String? town,
-      String? refcode,
-      String? country,
-      String? surname,
-      String? name,
-      String? numberDL,
-      String? dateDL,
-      String? carbrand,
-      String? carmodel,
-      String? carcolor,
-      String? caryear,
-      String? carNP,
-      String? carCTC,
-      String? carType,
-      String? description,
-      String? age,
-      String? image,
-      String? video,
-      String? question,
-      String? question0,
-      String? question1,
-      String? question2,
-      String? question3,
-      String? question4,
-      String? question5,
-      String? question6,
-      String? question7});
+      {String id,
+      String phone,
+      String password,
+      String town,
+      String refcode,
+      String country,
+      String surname,
+      String name,
+      String numberDL,
+      String dateDL,
+      String carbrand,
+      String carmodel,
+      String carcolor,
+      String caryear,
+      String carNP,
+      String carCTC,
+      String carType,
+      String description,
+      String age,
+      String image,
+      String video,
+      String question,
+      String question0,
+      String question1,
+      String question2,
+      String question3,
+      String question4,
+      String question5,
+      String question6,
+      String question7});
 }
 
 /// @nodoc
@@ -109,158 +109,158 @@ class _$DriverModelCopyWithImpl<$Res, $Val extends DriverModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? phone = freezed,
-    Object? password = freezed,
-    Object? town = freezed,
-    Object? refcode = freezed,
-    Object? country = freezed,
-    Object? surname = freezed,
-    Object? name = freezed,
-    Object? numberDL = freezed,
-    Object? dateDL = freezed,
-    Object? carbrand = freezed,
-    Object? carmodel = freezed,
-    Object? carcolor = freezed,
-    Object? caryear = freezed,
-    Object? carNP = freezed,
-    Object? carCTC = freezed,
-    Object? carType = freezed,
-    Object? description = freezed,
-    Object? age = freezed,
-    Object? image = freezed,
-    Object? video = freezed,
-    Object? question = freezed,
-    Object? question0 = freezed,
-    Object? question1 = freezed,
-    Object? question2 = freezed,
-    Object? question3 = freezed,
-    Object? question4 = freezed,
-    Object? question5 = freezed,
-    Object? question6 = freezed,
-    Object? question7 = freezed,
+    Object? id = null,
+    Object? phone = null,
+    Object? password = null,
+    Object? town = null,
+    Object? refcode = null,
+    Object? country = null,
+    Object? surname = null,
+    Object? name = null,
+    Object? numberDL = null,
+    Object? dateDL = null,
+    Object? carbrand = null,
+    Object? carmodel = null,
+    Object? carcolor = null,
+    Object? caryear = null,
+    Object? carNP = null,
+    Object? carCTC = null,
+    Object? carType = null,
+    Object? description = null,
+    Object? age = null,
+    Object? image = null,
+    Object? video = null,
+    Object? question = null,
+    Object? question0 = null,
+    Object? question1 = null,
+    Object? question2 = null,
+    Object? question3 = null,
+    Object? question4 = null,
+    Object? question5 = null,
+    Object? question6 = null,
+    Object? question7 = null,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone: freezed == phone
+              as String,
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
-      password: freezed == password
+              as String,
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as String?,
-      town: freezed == town
+              as String,
+      town: null == town
           ? _value.town
           : town // ignore: cast_nullable_to_non_nullable
-              as String?,
-      refcode: freezed == refcode
+              as String,
+      refcode: null == refcode
           ? _value.refcode
           : refcode // ignore: cast_nullable_to_non_nullable
-              as String?,
-      country: freezed == country
+              as String,
+      country: null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String?,
-      surname: freezed == surname
+              as String,
+      surname: null == surname
           ? _value.surname
           : surname // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
+              as String,
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      numberDL: freezed == numberDL
+              as String,
+      numberDL: null == numberDL
           ? _value.numberDL
           : numberDL // ignore: cast_nullable_to_non_nullable
-              as String?,
-      dateDL: freezed == dateDL
+              as String,
+      dateDL: null == dateDL
           ? _value.dateDL
           : dateDL // ignore: cast_nullable_to_non_nullable
-              as String?,
-      carbrand: freezed == carbrand
+              as String,
+      carbrand: null == carbrand
           ? _value.carbrand
           : carbrand // ignore: cast_nullable_to_non_nullable
-              as String?,
-      carmodel: freezed == carmodel
+              as String,
+      carmodel: null == carmodel
           ? _value.carmodel
           : carmodel // ignore: cast_nullable_to_non_nullable
-              as String?,
-      carcolor: freezed == carcolor
+              as String,
+      carcolor: null == carcolor
           ? _value.carcolor
           : carcolor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      caryear: freezed == caryear
+              as String,
+      caryear: null == caryear
           ? _value.caryear
           : caryear // ignore: cast_nullable_to_non_nullable
-              as String?,
-      carNP: freezed == carNP
+              as String,
+      carNP: null == carNP
           ? _value.carNP
           : carNP // ignore: cast_nullable_to_non_nullable
-              as String?,
-      carCTC: freezed == carCTC
+              as String,
+      carCTC: null == carCTC
           ? _value.carCTC
           : carCTC // ignore: cast_nullable_to_non_nullable
-              as String?,
-      carType: freezed == carType
+              as String,
+      carType: null == carType
           ? _value.carType
           : carType // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
+              as String,
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      age: freezed == age
+              as String,
+      age: null == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image: freezed == image
+              as String,
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String?,
-      video: freezed == video
+              as String,
+      video: null == video
           ? _value.video
           : video // ignore: cast_nullable_to_non_nullable
-              as String?,
-      question: freezed == question
+              as String,
+      question: null == question
           ? _value.question
           : question // ignore: cast_nullable_to_non_nullable
-              as String?,
-      question0: freezed == question0
+              as String,
+      question0: null == question0
           ? _value.question0
           : question0 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      question1: freezed == question1
+              as String,
+      question1: null == question1
           ? _value.question1
           : question1 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      question2: freezed == question2
+              as String,
+      question2: null == question2
           ? _value.question2
           : question2 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      question3: freezed == question3
+              as String,
+      question3: null == question3
           ? _value.question3
           : question3 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      question4: freezed == question4
+              as String,
+      question4: null == question4
           ? _value.question4
           : question4 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      question5: freezed == question5
+              as String,
+      question5: null == question5
           ? _value.question5
           : question5 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      question6: freezed == question6
+              as String,
+      question6: null == question6
           ? _value.question6
           : question6 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      question7: freezed == question7
+              as String,
+      question7: null == question7
           ? _value.question7
           : question7 // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -274,36 +274,36 @@ abstract class _$$_DriverModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? id,
-      String? phone,
-      String? password,
-      String? town,
-      String? refcode,
-      String? country,
-      String? surname,
-      String? name,
-      String? numberDL,
-      String? dateDL,
-      String? carbrand,
-      String? carmodel,
-      String? carcolor,
-      String? caryear,
-      String? carNP,
-      String? carCTC,
-      String? carType,
-      String? description,
-      String? age,
-      String? image,
-      String? video,
-      String? question,
-      String? question0,
-      String? question1,
-      String? question2,
-      String? question3,
-      String? question4,
-      String? question5,
-      String? question6,
-      String? question7});
+      {String id,
+      String phone,
+      String password,
+      String town,
+      String refcode,
+      String country,
+      String surname,
+      String name,
+      String numberDL,
+      String dateDL,
+      String carbrand,
+      String carmodel,
+      String carcolor,
+      String caryear,
+      String carNP,
+      String carCTC,
+      String carType,
+      String description,
+      String age,
+      String image,
+      String video,
+      String question,
+      String question0,
+      String question1,
+      String question2,
+      String question3,
+      String question4,
+      String question5,
+      String question6,
+      String question7});
 }
 
 /// @nodoc
@@ -317,158 +317,158 @@ class __$$_DriverModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? phone = freezed,
-    Object? password = freezed,
-    Object? town = freezed,
-    Object? refcode = freezed,
-    Object? country = freezed,
-    Object? surname = freezed,
-    Object? name = freezed,
-    Object? numberDL = freezed,
-    Object? dateDL = freezed,
-    Object? carbrand = freezed,
-    Object? carmodel = freezed,
-    Object? carcolor = freezed,
-    Object? caryear = freezed,
-    Object? carNP = freezed,
-    Object? carCTC = freezed,
-    Object? carType = freezed,
-    Object? description = freezed,
-    Object? age = freezed,
-    Object? image = freezed,
-    Object? video = freezed,
-    Object? question = freezed,
-    Object? question0 = freezed,
-    Object? question1 = freezed,
-    Object? question2 = freezed,
-    Object? question3 = freezed,
-    Object? question4 = freezed,
-    Object? question5 = freezed,
-    Object? question6 = freezed,
-    Object? question7 = freezed,
+    Object? id = null,
+    Object? phone = null,
+    Object? password = null,
+    Object? town = null,
+    Object? refcode = null,
+    Object? country = null,
+    Object? surname = null,
+    Object? name = null,
+    Object? numberDL = null,
+    Object? dateDL = null,
+    Object? carbrand = null,
+    Object? carmodel = null,
+    Object? carcolor = null,
+    Object? caryear = null,
+    Object? carNP = null,
+    Object? carCTC = null,
+    Object? carType = null,
+    Object? description = null,
+    Object? age = null,
+    Object? image = null,
+    Object? video = null,
+    Object? question = null,
+    Object? question0 = null,
+    Object? question1 = null,
+    Object? question2 = null,
+    Object? question3 = null,
+    Object? question4 = null,
+    Object? question5 = null,
+    Object? question6 = null,
+    Object? question7 = null,
   }) {
     return _then(_$_DriverModel(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone: freezed == phone
+              as String,
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
-      password: freezed == password
+              as String,
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as String?,
-      town: freezed == town
+              as String,
+      town: null == town
           ? _value.town
           : town // ignore: cast_nullable_to_non_nullable
-              as String?,
-      refcode: freezed == refcode
+              as String,
+      refcode: null == refcode
           ? _value.refcode
           : refcode // ignore: cast_nullable_to_non_nullable
-              as String?,
-      country: freezed == country
+              as String,
+      country: null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String?,
-      surname: freezed == surname
+              as String,
+      surname: null == surname
           ? _value.surname
           : surname // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
+              as String,
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      numberDL: freezed == numberDL
+              as String,
+      numberDL: null == numberDL
           ? _value.numberDL
           : numberDL // ignore: cast_nullable_to_non_nullable
-              as String?,
-      dateDL: freezed == dateDL
+              as String,
+      dateDL: null == dateDL
           ? _value.dateDL
           : dateDL // ignore: cast_nullable_to_non_nullable
-              as String?,
-      carbrand: freezed == carbrand
+              as String,
+      carbrand: null == carbrand
           ? _value.carbrand
           : carbrand // ignore: cast_nullable_to_non_nullable
-              as String?,
-      carmodel: freezed == carmodel
+              as String,
+      carmodel: null == carmodel
           ? _value.carmodel
           : carmodel // ignore: cast_nullable_to_non_nullable
-              as String?,
-      carcolor: freezed == carcolor
+              as String,
+      carcolor: null == carcolor
           ? _value.carcolor
           : carcolor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      caryear: freezed == caryear
+              as String,
+      caryear: null == caryear
           ? _value.caryear
           : caryear // ignore: cast_nullable_to_non_nullable
-              as String?,
-      carNP: freezed == carNP
+              as String,
+      carNP: null == carNP
           ? _value.carNP
           : carNP // ignore: cast_nullable_to_non_nullable
-              as String?,
-      carCTC: freezed == carCTC
+              as String,
+      carCTC: null == carCTC
           ? _value.carCTC
           : carCTC // ignore: cast_nullable_to_non_nullable
-              as String?,
-      carType: freezed == carType
+              as String,
+      carType: null == carType
           ? _value.carType
           : carType // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
+              as String,
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      age: freezed == age
+              as String,
+      age: null == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image: freezed == image
+              as String,
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String?,
-      video: freezed == video
+              as String,
+      video: null == video
           ? _value.video
           : video // ignore: cast_nullable_to_non_nullable
-              as String?,
-      question: freezed == question
+              as String,
+      question: null == question
           ? _value.question
           : question // ignore: cast_nullable_to_non_nullable
-              as String?,
-      question0: freezed == question0
+              as String,
+      question0: null == question0
           ? _value.question0
           : question0 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      question1: freezed == question1
+              as String,
+      question1: null == question1
           ? _value.question1
           : question1 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      question2: freezed == question2
+              as String,
+      question2: null == question2
           ? _value.question2
           : question2 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      question3: freezed == question3
+              as String,
+      question3: null == question3
           ? _value.question3
           : question3 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      question4: freezed == question4
+              as String,
+      question4: null == question4
           ? _value.question4
           : question4 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      question5: freezed == question5
+              as String,
+      question5: null == question5
           ? _value.question5
           : question5 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      question6: freezed == question6
+              as String,
+      question6: null == question6
           ? _value.question6
           : question6 // ignore: cast_nullable_to_non_nullable
-              as String?,
-      question7: freezed == question7
+              as String,
+      question7: null == question7
           ? _value.question7
           : question7 // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -513,94 +513,94 @@ class _$_DriverModel implements _DriverModel {
 
   @override
   @JsonKey()
-  final String? id;
+  final String id;
   @override
   @JsonKey()
-  final String? phone;
+  final String phone;
   @override
   @JsonKey()
-  final String? password;
+  final String password;
   @override
   @JsonKey()
-  final String? town;
+  final String town;
   @override
   @JsonKey()
-  final String? refcode;
+  final String refcode;
   @override
   @JsonKey()
-  final String? country;
+  final String country;
   @override
   @JsonKey()
-  final String? surname;
+  final String surname;
   @override
   @JsonKey()
-  final String? name;
+  final String name;
   @override
   @JsonKey()
-  final String? numberDL;
+  final String numberDL;
   @override
   @JsonKey()
-  final String? dateDL;
+  final String dateDL;
   @override
   @JsonKey()
-  final String? carbrand;
+  final String carbrand;
   @override
   @JsonKey()
-  final String? carmodel;
+  final String carmodel;
   @override
   @JsonKey()
-  final String? carcolor;
+  final String carcolor;
   @override
   @JsonKey()
-  final String? caryear;
+  final String caryear;
   @override
   @JsonKey()
-  final String? carNP;
+  final String carNP;
   @override
   @JsonKey()
-  final String? carCTC;
+  final String carCTC;
   @override
   @JsonKey()
-  final String? carType;
+  final String carType;
   @override
   @JsonKey()
-  final String? description;
+  final String description;
   @override
   @JsonKey()
-  final String? age;
+  final String age;
   @override
   @JsonKey()
-  final String? image;
+  final String image;
   @override
   @JsonKey()
-  final String? video;
+  final String video;
   @override
   @JsonKey()
-  final String? question;
+  final String question;
   @override
   @JsonKey()
-  final String? question0;
+  final String question0;
   @override
   @JsonKey()
-  final String? question1;
+  final String question1;
   @override
   @JsonKey()
-  final String? question2;
+  final String question2;
   @override
   @JsonKey()
-  final String? question3;
+  final String question3;
   @override
   @JsonKey()
-  final String? question4;
+  final String question4;
   @override
   @JsonKey()
-  final String? question5;
+  final String question5;
   @override
   @JsonKey()
-  final String? question6;
+  final String question6;
   @override
   @JsonKey()
-  final String? question7;
+  final String question7;
 
   @override
   String toString() {
@@ -711,100 +711,100 @@ class _$_DriverModel implements _DriverModel {
 
 abstract class _DriverModel implements DriverModel {
   const factory _DriverModel(
-      {final String? id,
-      final String? phone,
-      final String? password,
-      final String? town,
-      final String? refcode,
-      final String? country,
-      final String? surname,
-      final String? name,
-      final String? numberDL,
-      final String? dateDL,
-      final String? carbrand,
-      final String? carmodel,
-      final String? carcolor,
-      final String? caryear,
-      final String? carNP,
-      final String? carCTC,
-      final String? carType,
-      final String? description,
-      final String? age,
-      final String? image,
-      final String? video,
-      final String? question,
-      final String? question0,
-      final String? question1,
-      final String? question2,
-      final String? question3,
-      final String? question4,
-      final String? question5,
-      final String? question6,
-      final String? question7}) = _$_DriverModel;
+      {final String id,
+      final String phone,
+      final String password,
+      final String town,
+      final String refcode,
+      final String country,
+      final String surname,
+      final String name,
+      final String numberDL,
+      final String dateDL,
+      final String carbrand,
+      final String carmodel,
+      final String carcolor,
+      final String caryear,
+      final String carNP,
+      final String carCTC,
+      final String carType,
+      final String description,
+      final String age,
+      final String image,
+      final String video,
+      final String question,
+      final String question0,
+      final String question1,
+      final String question2,
+      final String question3,
+      final String question4,
+      final String question5,
+      final String question6,
+      final String question7}) = _$_DriverModel;
 
   factory _DriverModel.fromJson(Map<String, dynamic> json) =
       _$_DriverModel.fromJson;
 
   @override
-  String? get id;
+  String get id;
   @override
-  String? get phone;
+  String get phone;
   @override
-  String? get password;
+  String get password;
   @override
-  String? get town;
+  String get town;
   @override
-  String? get refcode;
+  String get refcode;
   @override
-  String? get country;
+  String get country;
   @override
-  String? get surname;
+  String get surname;
   @override
-  String? get name;
+  String get name;
   @override
-  String? get numberDL;
+  String get numberDL;
   @override
-  String? get dateDL;
+  String get dateDL;
   @override
-  String? get carbrand;
+  String get carbrand;
   @override
-  String? get carmodel;
+  String get carmodel;
   @override
-  String? get carcolor;
+  String get carcolor;
   @override
-  String? get caryear;
+  String get caryear;
   @override
-  String? get carNP;
+  String get carNP;
   @override
-  String? get carCTC;
+  String get carCTC;
   @override
-  String? get carType;
+  String get carType;
   @override
-  String? get description;
+  String get description;
   @override
-  String? get age;
+  String get age;
   @override
-  String? get image;
+  String get image;
   @override
-  String? get video;
+  String get video;
   @override
-  String? get question;
+  String get question;
   @override
-  String? get question0;
+  String get question0;
   @override
-  String? get question1;
+  String get question1;
   @override
-  String? get question2;
+  String get question2;
   @override
-  String? get question3;
+  String get question3;
   @override
-  String? get question4;
+  String get question4;
   @override
-  String? get question5;
+  String get question5;
   @override
-  String? get question6;
+  String get question6;
   @override
-  String? get question7;
+  String get question7;
   @override
   @JsonKey(ignore: true)
   _$$_DriverModelCopyWith<_$_DriverModel> get copyWith =>

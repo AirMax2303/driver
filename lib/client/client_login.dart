@@ -30,7 +30,7 @@ class ClientLoginPage extends StatelessWidget {
               Expanded(
                 child: Container(
                   decoration:
-                  const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+                      const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     child: Column(
@@ -42,7 +42,7 @@ class ClientLoginPage extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.all(18.0),
                             child:
-                            Column(mainAxisSize: MainAxisSize.max, crossAxisAlignment: CrossAxisAlignment.start, children: [
+                                Column(mainAxisSize: MainAxisSize.max, crossAxisAlignment: CrossAxisAlignment.start, children: [
                               AppSixeBox.size20,
                               AppText.blackText16(
                                 'Номер телефона',
@@ -60,16 +60,21 @@ class ClientLoginPage extends StatelessWidget {
                         ),
                         Container(
                             child: Padding(
-                              padding: const EdgeInsets.all(18.0),
-                              child: Column(
-                                children: [
-                                  AppButton.filledButton('Войти', onPressed: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => ClientPinAuthPage()));
-                                  }),
-                                  AppSixeBox.size20
-                                ],
-                              ),
-                            )),
+                          padding: const EdgeInsets.all(18.0),
+                          child: Column(
+                            children: [
+                              AppButton.filledButton('Войти', onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ClientPinAuthPage(
+                                              header: 'Введите код авторизации',
+                                            )));
+                              }),
+                              AppSixeBox.size20
+                            ],
+                          ),
+                        )),
                       ],
                     ),
                   ),

@@ -482,24 +482,24 @@ mixin _$DriverState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<DriverModel>? list) data,
-    required TResult Function(DriverModel? driver) defs,
+    required TResult Function(List<DriverModel> list) data,
+    required TResult Function(DriverModel driver) defs,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<DriverModel>? list)? data,
-    TResult? Function(DriverModel? driver)? defs,
+    TResult? Function(List<DriverModel> list)? data,
+    TResult? Function(DriverModel driver)? defs,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<DriverModel>? list)? data,
-    TResult Function(DriverModel? driver)? defs,
+    TResult Function(List<DriverModel> list)? data,
+    TResult Function(DriverModel driver)? defs,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -588,8 +588,8 @@ class _$_InitialState implements _InitialState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<DriverModel>? list) data,
-    required TResult Function(DriverModel? driver) defs,
+    required TResult Function(List<DriverModel> list) data,
+    required TResult Function(DriverModel driver) defs,
   }) {
     return initial();
   }
@@ -599,8 +599,8 @@ class _$_InitialState implements _InitialState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<DriverModel>? list)? data,
-    TResult? Function(DriverModel? driver)? defs,
+    TResult? Function(List<DriverModel> list)? data,
+    TResult? Function(DriverModel driver)? defs,
   }) {
     return initial?.call();
   }
@@ -610,8 +610,8 @@ class _$_InitialState implements _InitialState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<DriverModel>? list)? data,
-    TResult Function(DriverModel? driver)? defs,
+    TResult Function(List<DriverModel> list)? data,
+    TResult Function(DriverModel driver)? defs,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -702,8 +702,8 @@ class _$_LoadingState implements _LoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<DriverModel>? list) data,
-    required TResult Function(DriverModel? driver) defs,
+    required TResult Function(List<DriverModel> list) data,
+    required TResult Function(DriverModel driver) defs,
   }) {
     return loading();
   }
@@ -713,8 +713,8 @@ class _$_LoadingState implements _LoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<DriverModel>? list)? data,
-    TResult? Function(DriverModel? driver)? defs,
+    TResult? Function(List<DriverModel> list)? data,
+    TResult? Function(DriverModel driver)? defs,
   }) {
     return loading?.call();
   }
@@ -724,8 +724,8 @@ class _$_LoadingState implements _LoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<DriverModel>? list)? data,
-    TResult Function(DriverModel? driver)? defs,
+    TResult Function(List<DriverModel> list)? data,
+    TResult Function(DriverModel driver)? defs,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -782,7 +782,7 @@ abstract class _$$_DataStateCopyWith<$Res> {
           _$_DataState value, $Res Function(_$_DataState) then) =
       __$$_DataStateCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<DriverModel>? list});
+  $Res call({List<DriverModel> list});
 }
 
 /// @nodoc
@@ -796,13 +796,13 @@ class __$$_DataStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? list = freezed,
+    Object? list = null,
   }) {
     return _then(_$_DataState(
-      list: freezed == list
+      list: null == list
           ? _value._list
           : list // ignore: cast_nullable_to_non_nullable
-              as List<DriverModel>?,
+              as List<DriverModel>,
     ));
   }
 }
@@ -810,16 +810,14 @@ class __$$_DataStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_DataState implements _DataState {
-  const _$_DataState({required final List<DriverModel>? list}) : _list = list;
+  const _$_DataState({required final List<DriverModel> list}) : _list = list;
 
-  final List<DriverModel>? _list;
+  final List<DriverModel> _list;
   @override
-  List<DriverModel>? get list {
-    final value = _list;
-    if (value == null) return null;
+  List<DriverModel> get list {
     if (_list is EqualUnmodifiableListView) return _list;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_list);
   }
 
   @override
@@ -850,8 +848,8 @@ class _$_DataState implements _DataState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<DriverModel>? list) data,
-    required TResult Function(DriverModel? driver) defs,
+    required TResult Function(List<DriverModel> list) data,
+    required TResult Function(DriverModel driver) defs,
   }) {
     return data(list);
   }
@@ -861,8 +859,8 @@ class _$_DataState implements _DataState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<DriverModel>? list)? data,
-    TResult? Function(DriverModel? driver)? defs,
+    TResult? Function(List<DriverModel> list)? data,
+    TResult? Function(DriverModel driver)? defs,
   }) {
     return data?.call(list);
   }
@@ -872,8 +870,8 @@ class _$_DataState implements _DataState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<DriverModel>? list)? data,
-    TResult Function(DriverModel? driver)? defs,
+    TResult Function(List<DriverModel> list)? data,
+    TResult Function(DriverModel driver)? defs,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -921,10 +919,10 @@ class _$_DataState implements _DataState {
 }
 
 abstract class _DataState implements DriverState {
-  const factory _DataState({required final List<DriverModel>? list}) =
+  const factory _DataState({required final List<DriverModel> list}) =
       _$_DataState;
 
-  List<DriverModel>? get list;
+  List<DriverModel> get list;
   @JsonKey(ignore: true)
   _$$_DataStateCopyWith<_$_DataState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -936,9 +934,9 @@ abstract class _$$_DataDriverStateCopyWith<$Res> {
           _$_DataDriverState value, $Res Function(_$_DataDriverState) then) =
       __$$_DataDriverStateCopyWithImpl<$Res>;
   @useResult
-  $Res call({DriverModel? driver});
+  $Res call({DriverModel driver});
 
-  $DriverModelCopyWith<$Res>? get driver;
+  $DriverModelCopyWith<$Res> get driver;
 }
 
 /// @nodoc
@@ -952,24 +950,20 @@ class __$$_DataDriverStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? driver = freezed,
+    Object? driver = null,
   }) {
     return _then(_$_DataDriverState(
-      driver: freezed == driver
+      driver: null == driver
           ? _value.driver
           : driver // ignore: cast_nullable_to_non_nullable
-              as DriverModel?,
+              as DriverModel,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $DriverModelCopyWith<$Res>? get driver {
-    if (_value.driver == null) {
-      return null;
-    }
-
-    return $DriverModelCopyWith<$Res>(_value.driver!, (value) {
+  $DriverModelCopyWith<$Res> get driver {
+    return $DriverModelCopyWith<$Res>(_value.driver, (value) {
       return _then(_value.copyWith(driver: value));
     });
   }
@@ -981,7 +975,7 @@ class _$_DataDriverState implements _DataDriverState {
   const _$_DataDriverState({required this.driver});
 
   @override
-  final DriverModel? driver;
+  final DriverModel driver;
 
   @override
   String toString() {
@@ -1010,8 +1004,8 @@ class _$_DataDriverState implements _DataDriverState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<DriverModel>? list) data,
-    required TResult Function(DriverModel? driver) defs,
+    required TResult Function(List<DriverModel> list) data,
+    required TResult Function(DriverModel driver) defs,
   }) {
     return defs(driver);
   }
@@ -1021,8 +1015,8 @@ class _$_DataDriverState implements _DataDriverState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<DriverModel>? list)? data,
-    TResult? Function(DriverModel? driver)? defs,
+    TResult? Function(List<DriverModel> list)? data,
+    TResult? Function(DriverModel driver)? defs,
   }) {
     return defs?.call(driver);
   }
@@ -1032,8 +1026,8 @@ class _$_DataDriverState implements _DataDriverState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<DriverModel>? list)? data,
-    TResult Function(DriverModel? driver)? defs,
+    TResult Function(List<DriverModel> list)? data,
+    TResult Function(DriverModel driver)? defs,
     required TResult orElse(),
   }) {
     if (defs != null) {
@@ -1081,10 +1075,10 @@ class _$_DataDriverState implements _DataDriverState {
 }
 
 abstract class _DataDriverState implements DriverState {
-  const factory _DataDriverState({required final DriverModel? driver}) =
+  const factory _DataDriverState({required final DriverModel driver}) =
       _$_DataDriverState;
 
-  DriverModel? get driver;
+  DriverModel get driver;
   @JsonKey(ignore: true)
   _$$_DataDriverStateCopyWith<_$_DataDriverState> get copyWith =>
       throw _privateConstructorUsedError;

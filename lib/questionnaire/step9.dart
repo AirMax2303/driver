@@ -4,15 +4,17 @@ import 'package:driver/questionnaire/step7.dart';
 import 'package:driver/questionnaire/step8.dart';
 import 'package:driver/widget/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
+import '../Service/defs_service.dart';
+import '../Service/driver_service.dart';
 import '../auth/login.dart';
 import '../models/defs.dart';
 import '../models/driver.dart';
 
 class Step9 extends StatelessWidget {
-  Step9({Key? key, required this.defs, required this.driver}) : super(key: key);
-  DefsModel defs;
-  late DriverModel driver;
+  Step9({Key? key}) : super(key: key);
+  final DriverService service = GetIt.instance.get<DriverService>();
 
   @override
   Widget build(BuildContext context) {
@@ -39,15 +41,12 @@ class Step9 extends StatelessWidget {
                           Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => Step8(
-                                            defs: defs,
-                                            driver: driver,
-                                          )));
+                                      builder: (context) => Step8()));
                             }, color: const Color(0xFFDFDDF5), icon: Image.asset('assets/Vector.png')),
                         AppButton.button16(
                           'Воыйти',
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(defs: defs,)));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
                           },
                         )
                       ],
@@ -83,7 +82,7 @@ class Step9 extends StatelessWidget {
                                 TextFormField(
                                   maxLines: 10,
                                   decoration: const InputDecoration(hintText: 'Ваши действия пошагово?'),
-                                  onChanged: (value) {driver = driver.copyWith(question7: value);},
+                                  onChanged: (value) {service.driver = service.driver.copyWith(question7: value);},
                                 ),
                               ],
                             ),
@@ -95,7 +94,10 @@ class Step9 extends StatelessWidget {
                               child: Column(
                                 children: [
                                   AppButton.filledButton('Отправить заявку', onPressed: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => Step10()));
+                                    final DefsService defs_service = GetIt.instance.get<DefsService>();
+                                    service.driver = service.driver.copyWith(id: defs_service.defs.id);
+                                    service.addDriver();
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => const Step10()));
                                   }),
                                   AppSixeBox.size20
                                 ],

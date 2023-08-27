@@ -20,21 +20,21 @@ mixin _$ClientEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() getClients,
-    required TResult Function(ClientModel value) saveClient,
+    required TResult Function() saveClient,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? getClients,
-    TResult? Function(ClientModel value)? saveClient,
+    TResult? Function()? saveClient,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? getClients,
-    TResult Function(ClientModel value)? saveClient,
+    TResult Function()? saveClient,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,7 +120,7 @@ class _$_InitialEvent implements _InitialEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() getClients,
-    required TResult Function(ClientModel value) saveClient,
+    required TResult Function() saveClient,
   }) {
     return initial();
   }
@@ -130,7 +130,7 @@ class _$_InitialEvent implements _InitialEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? getClients,
-    TResult? Function(ClientModel value)? saveClient,
+    TResult? Function()? saveClient,
   }) {
     return initial?.call();
   }
@@ -140,7 +140,7 @@ class _$_InitialEvent implements _InitialEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? getClients,
-    TResult Function(ClientModel value)? saveClient,
+    TResult Function()? saveClient,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -228,7 +228,7 @@ class _$_GetClientsEvent implements _GetClientsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() getClients,
-    required TResult Function(ClientModel value) saveClient,
+    required TResult Function() saveClient,
   }) {
     return getClients();
   }
@@ -238,7 +238,7 @@ class _$_GetClientsEvent implements _GetClientsEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? getClients,
-    TResult? Function(ClientModel value)? saveClient,
+    TResult? Function()? saveClient,
   }) {
     return getClients?.call();
   }
@@ -248,7 +248,7 @@ class _$_GetClientsEvent implements _GetClientsEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? getClients,
-    TResult Function(ClientModel value)? saveClient,
+    TResult Function()? saveClient,
     required TResult orElse(),
   }) {
     if (getClients != null) {
@@ -301,10 +301,6 @@ abstract class _$$_SaveClientEventCopyWith<$Res> {
   factory _$$_SaveClientEventCopyWith(
           _$_SaveClientEvent value, $Res Function(_$_SaveClientEvent) then) =
       __$$_SaveClientEventCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ClientModel value});
-
-  $ClientModelCopyWith<$Res> get value;
 }
 
 /// @nodoc
@@ -314,67 +310,35 @@ class __$$_SaveClientEventCopyWithImpl<$Res>
   __$$_SaveClientEventCopyWithImpl(
       _$_SaveClientEvent _value, $Res Function(_$_SaveClientEvent) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$_SaveClientEvent(
-      null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as ClientModel,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ClientModelCopyWith<$Res> get value {
-    return $ClientModelCopyWith<$Res>(_value.value, (value) {
-      return _then(_value.copyWith(value: value));
-    });
-  }
 }
 
 /// @nodoc
 
 class _$_SaveClientEvent implements _SaveClientEvent {
-  const _$_SaveClientEvent(this.value);
-
-  @override
-  final ClientModel value;
+  const _$_SaveClientEvent();
 
   @override
   String toString() {
-    return 'ClientEvent.saveClient(value: $value)';
+    return 'ClientEvent.saveClient()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_SaveClientEvent &&
-            (identical(other.value, value) || other.value == value));
+        (other.runtimeType == runtimeType && other is _$_SaveClientEvent);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_SaveClientEventCopyWith<_$_SaveClientEvent> get copyWith =>
-      __$$_SaveClientEventCopyWithImpl<_$_SaveClientEvent>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() getClients,
-    required TResult Function(ClientModel value) saveClient,
+    required TResult Function() saveClient,
   }) {
-    return saveClient(value);
+    return saveClient();
   }
 
   @override
@@ -382,9 +346,9 @@ class _$_SaveClientEvent implements _SaveClientEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? getClients,
-    TResult? Function(ClientModel value)? saveClient,
+    TResult? Function()? saveClient,
   }) {
-    return saveClient?.call(value);
+    return saveClient?.call();
   }
 
   @override
@@ -392,11 +356,11 @@ class _$_SaveClientEvent implements _SaveClientEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? getClients,
-    TResult Function(ClientModel value)? saveClient,
+    TResult Function()? saveClient,
     required TResult orElse(),
   }) {
     if (saveClient != null) {
-      return saveClient(value);
+      return saveClient();
     }
     return orElse();
   }
@@ -437,12 +401,7 @@ class _$_SaveClientEvent implements _SaveClientEvent {
 }
 
 abstract class _SaveClientEvent implements ClientEvent {
-  const factory _SaveClientEvent(final ClientModel value) = _$_SaveClientEvent;
-
-  ClientModel get value;
-  @JsonKey(ignore: true)
-  _$$_SaveClientEventCopyWith<_$_SaveClientEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _SaveClientEvent() = _$_SaveClientEvent;
 }
 
 /// @nodoc
@@ -451,21 +410,21 @@ mixin _$ClientState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ClientModel>? list) data,
+    required TResult Function(List<ClientModel> list) data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ClientModel>? list)? data,
+    TResult? Function(List<ClientModel> list)? data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ClientModel>? list)? data,
+    TResult Function(List<ClientModel> list)? data,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -551,7 +510,7 @@ class _$_InitialState implements _InitialState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ClientModel>? list) data,
+    required TResult Function(List<ClientModel> list) data,
   }) {
     return initial();
   }
@@ -561,7 +520,7 @@ class _$_InitialState implements _InitialState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ClientModel>? list)? data,
+    TResult? Function(List<ClientModel> list)? data,
   }) {
     return initial?.call();
   }
@@ -571,7 +530,7 @@ class _$_InitialState implements _InitialState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ClientModel>? list)? data,
+    TResult Function(List<ClientModel> list)? data,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -659,7 +618,7 @@ class _$_LoadingState implements _LoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ClientModel>? list) data,
+    required TResult Function(List<ClientModel> list) data,
   }) {
     return loading();
   }
@@ -669,7 +628,7 @@ class _$_LoadingState implements _LoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ClientModel>? list)? data,
+    TResult? Function(List<ClientModel> list)? data,
   }) {
     return loading?.call();
   }
@@ -679,7 +638,7 @@ class _$_LoadingState implements _LoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ClientModel>? list)? data,
+    TResult Function(List<ClientModel> list)? data,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -733,7 +692,7 @@ abstract class _$$_DataStateCopyWith<$Res> {
           _$_DataState value, $Res Function(_$_DataState) then) =
       __$$_DataStateCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<ClientModel>? list});
+  $Res call({List<ClientModel> list});
 }
 
 /// @nodoc
@@ -747,13 +706,13 @@ class __$$_DataStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? list = freezed,
+    Object? list = null,
   }) {
     return _then(_$_DataState(
-      list: freezed == list
+      list: null == list
           ? _value._list
           : list // ignore: cast_nullable_to_non_nullable
-              as List<ClientModel>?,
+              as List<ClientModel>,
     ));
   }
 }
@@ -761,16 +720,14 @@ class __$$_DataStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_DataState implements _DataState {
-  const _$_DataState({required final List<ClientModel>? list}) : _list = list;
+  const _$_DataState({required final List<ClientModel> list}) : _list = list;
 
-  final List<ClientModel>? _list;
+  final List<ClientModel> _list;
   @override
-  List<ClientModel>? get list {
-    final value = _list;
-    if (value == null) return null;
+  List<ClientModel> get list {
     if (_list is EqualUnmodifiableListView) return _list;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_list);
   }
 
   @override
@@ -801,7 +758,7 @@ class _$_DataState implements _DataState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<ClientModel>? list) data,
+    required TResult Function(List<ClientModel> list) data,
   }) {
     return data(list);
   }
@@ -811,7 +768,7 @@ class _$_DataState implements _DataState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<ClientModel>? list)? data,
+    TResult? Function(List<ClientModel> list)? data,
   }) {
     return data?.call(list);
   }
@@ -821,7 +778,7 @@ class _$_DataState implements _DataState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<ClientModel>? list)? data,
+    TResult Function(List<ClientModel> list)? data,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -866,10 +823,10 @@ class _$_DataState implements _DataState {
 }
 
 abstract class _DataState implements ClientState {
-  const factory _DataState({required final List<ClientModel>? list}) =
+  const factory _DataState({required final List<ClientModel> list}) =
       _$_DataState;
 
-  List<ClientModel>? get list;
+  List<ClientModel> get list;
   @JsonKey(ignore: true)
   _$$_DataStateCopyWith<_$_DataState> get copyWith =>
       throw _privateConstructorUsedError;

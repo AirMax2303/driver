@@ -7,10 +7,10 @@ class DriverState with _$DriverState {
   const factory DriverState.loading() = _LoadingState;
 
   const factory DriverState.data({
-    required List<DriverModel>? list,
+    required List<DriverModel> list,
   }) = _DataState;
 
   const factory DriverState.defs({
-    required DriverModel? driver,
+    required DriverModel driver,
   }) = _DataDriverState;
 }

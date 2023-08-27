@@ -20,8 +20,8 @@ DefsModel _$DefsModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DefsModel {
-  String? get id => throw _privateConstructorUsedError;
-  String? get pin => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get pin => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $DefsModelCopyWith<$Res> {
   factory $DefsModelCopyWith(DefsModel value, $Res Function(DefsModel) then) =
       _$DefsModelCopyWithImpl<$Res, DefsModel>;
   @useResult
-  $Res call({String? id, String? pin});
+  $Res call({String id, String pin});
 }
 
 /// @nodoc
@@ -50,18 +50,18 @@ class _$DefsModelCopyWithImpl<$Res, $Val extends DefsModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? pin = freezed,
+    Object? id = null,
+    Object? pin = null,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      pin: freezed == pin
+              as String,
+      pin: null == pin
           ? _value.pin
           : pin // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -73,7 +73,7 @@ abstract class _$$_DefsModelCopyWith<$Res> implements $DefsModelCopyWith<$Res> {
       __$$_DefsModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? id, String? pin});
+  $Res call({String id, String pin});
 }
 
 /// @nodoc
@@ -87,18 +87,18 @@ class __$$_DefsModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? pin = freezed,
+    Object? id = null,
+    Object? pin = null,
   }) {
     return _then(_$_DefsModel(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      pin: freezed == pin
+              as String,
+      pin: null == pin
           ? _value.pin
           : pin // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -113,10 +113,10 @@ class _$_DefsModel implements _DefsModel {
 
   @override
   @JsonKey()
-  final String? id;
+  final String id;
   @override
   @JsonKey()
-  final String? pin;
+  final String pin;
 
   @override
   String toString() {
@@ -151,16 +151,15 @@ class _$_DefsModel implements _DefsModel {
 }
 
 abstract class _DefsModel implements DefsModel {
-  const factory _DefsModel({final String? id, final String? pin}) =
-      _$_DefsModel;
+  const factory _DefsModel({final String id, final String pin}) = _$_DefsModel;
 
   factory _DefsModel.fromJson(Map<String, dynamic> json) =
       _$_DefsModel.fromJson;
 
   @override
-  String? get id;
+  String get id;
   @override
-  String? get pin;
+  String get pin;
   @override
   @JsonKey(ignore: true)
   _$$_DefsModelCopyWith<_$_DefsModel> get copyWith =>

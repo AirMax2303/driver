@@ -1,10 +1,16 @@
+import 'package:driver/Service/grafic_service.dart';
 import 'package:driver/models/db.dart';
+import 'package:driver/models/grafic.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import '../Service/client_service.dart';
+import '../Service/driver_service.dart';
 import '../auth/auth.dart';
 import '../client/client_auth.dart';
 import '../client/client_step1.dart';
 import '../questionnaire/step1.dart';
 import '../widget/widgets.dart';
+import 'admin_management.dart';
 
 class AdminPanel extends StatelessWidget {
   const AdminPanel({Key? key}) : super(key: key);
@@ -76,6 +82,9 @@ class AdminPanel extends StatelessWidget {
               AdminElementSquare(
                 data: 'Управление пользователями',
                 image: 'assets/Saly-31.png',
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => UserManagement()));
+                },
               ),
               const SizedBox(
                 width: 16,
@@ -115,7 +124,14 @@ class AdminPanel extends StatelessWidget {
               const SizedBox(
                 width: 16,
               ),
-              AdminElementSquare(data: 'Управление отчетами', image: 'assets/Other 21.png'),
+              AdminElementSquare(
+                  data: 'Управление отчетами',
+                  image: 'assets/Other 21.png',
+                  onTap: () {
+                    final GraficService service = GetIt.instance.get<GraficService>();
+                    service.getGraficList('cascsac');
+                  },
+              ),
               const SizedBox(
                 width: 16,
               ),
@@ -178,48 +194,52 @@ class AdminElementRectangle extends StatelessWidget {
 }
 
 class AdminElementSquare extends StatelessWidget {
-  AdminElementSquare({Key? key, required this.data, required this.image, this.color}) : super(key: key);
+  AdminElementSquare({Key? key, required this.data, required this.image, this.color, this.onTap}) : super(key: key);
   String data;
   String image;
   Color? color;
+  final GestureTapCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: (MediaQuery.of(context).size.width ~/ 2) - 24,
-      height: (MediaQuery.of(context).size.width ~/ 2) - 70,
-      decoration: BoxDecoration(
-        color: color ?? Colors.white,
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.grey,
-            blurRadius: 5,
-            spreadRadius: 1,
-            offset: Offset(4, 4),
-          ),
-        ],
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Stack(
-            children: [
-              Container(
-                width: 130,
-                child: color == null ? AppText.blackText16(data) : AppText.whiteText16(data),
-              ),
-              Positioned(
-                top: 40,
-                right: 10,
-                child: Image.asset(
-                  image,
-                  height: 80,
-                  width: 80,
-                  fit: BoxFit.cover,
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: (MediaQuery.of(context).size.width ~/ 2) - 24,
+        height: (MediaQuery.of(context).size.width ~/ 2) - 70,
+        decoration: BoxDecoration(
+          color: color ?? Colors.white,
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.grey,
+              blurRadius: 5,
+              spreadRadius: 1,
+              offset: Offset(4, 4),
+            ),
+          ],
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Stack(
+              children: [
+                Container(
+                  width: 130,
+                  child: color == null ? AppText.blackText16(data) : AppText.whiteText16(data),
                 ),
-              ),
-            ],
-          )),
+                Positioned(
+                  top: 40,
+                  right: 10,
+                  child: Image.asset(
+                    image,
+                    height: 80,
+                    width: 80,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            )),
+      ),
     );
   }
 }

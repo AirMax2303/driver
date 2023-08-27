@@ -2,15 +2,14 @@ import 'package:driver/questionnaire/step7.dart';
 import 'package:driver/questionnaire/step9.dart';
 import 'package:driver/widget/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
+import '../Service/driver_service.dart';
 import '../auth/login.dart';
-import '../models/defs.dart';
-import '../models/driver.dart';
 
 class Step8 extends StatelessWidget {
-  Step8({Key? key, required this.defs, required this.driver}) : super(key: key);
-  DefsModel defs;
-  late DriverModel driver;
+  Step8({Key? key,}) : super(key: key);
+  final DriverService service = GetIt.instance.get<DriverService>();
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +37,7 @@ class Step8 extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => Step7(
-                                            defs: defs,
-                                            driver: driver,
-                                          )));
+                                      builder: (context) => Step7()));
                             },
                             color: const Color(0xFFDFDDF5),
                             icon: Image.asset('assets/Vector.png')),
@@ -51,9 +47,7 @@ class Step8 extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => LoginPage(
-                                          defs: defs,
-                                        )));
+                                    builder: (context) => LoginPage()));
                           },
                         )
                       ],
@@ -92,7 +86,7 @@ class Step8 extends StatelessWidget {
                                   maxLines: 5,
                                   decoration: const InputDecoration(hintText: 'Ваши действия?'),
                                   onChanged: (value) {
-                                    driver = driver.copyWith(question5: value);
+                                    service.driver = service.driver.copyWith(question5: value);
                                   },
                                 ),
                                 AppText.blackText16(
@@ -102,7 +96,7 @@ class Step8 extends StatelessWidget {
                                   maxLines: 5,
                                   decoration: const InputDecoration(hintText: 'Как вы отреагируете?'),
                                   onChanged: (value) {
-                                    driver = driver.copyWith(question6: value);
+                                    service.driver = service.driver.copyWith(question6: value);
                                   },
                                 ),
                               ],
@@ -118,10 +112,7 @@ class Step8 extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => Step9(
-                                              defs: defs,
-                                              driver: driver,
-                                            )));
+                                        builder: (context) => Step9()));
                               }),
                               AppSixeBox.size20
                             ],

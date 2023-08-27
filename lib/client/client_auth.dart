@@ -1,6 +1,8 @@
 import 'package:driver/widget/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
+import '../Service/defs_service.dart';
 import '../bloc/defs_bloc/defs_bloc.dart';
 import '../client/client_step1.dart';
 import '../models/client.dart';
@@ -13,7 +15,7 @@ class ClientAuthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<DefsBloc>(
-      create: (context) => DefsBloc()..add(const DefsEvent.initial('client')),
+      create: (context) => DefsBloc(GetIt.instance.get<DefsService>())..add(const DefsEvent.initial('client')),
       child: BlocConsumer<DefsBloc, DefsState>(listener: (context, state) {
         state.mapOrNull();
       }, builder: (context, state) {
@@ -58,7 +60,7 @@ class ClientAuthPage extends StatelessWidget {
                   height: 40,
                 ),
                 AppButton.whiteButton('Зарегистрироваться', onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ClientStep1(defs: defs, client: ClientModel(id: defs.id))));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ClientStep1()));
                 }),
                 const SizedBox(
                   height: 40,

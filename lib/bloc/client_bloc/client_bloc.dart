@@ -1,5 +1,4 @@
 import 'package:uuid/uuid.dart';
-import 'package:uuid/uuid_util.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../Service/client_service.dart';
@@ -13,11 +12,11 @@ part 'client_state.dart';
 
 class ClientBloc extends Bloc<ClientEvent, ClientState> {
   ClientService service = ClientService();
-  List<ClientModel>? list = [];
+  List<ClientModel> list = [];
   final uuid = const Uuid();
   ClientModel? client;
 
-  ClientBloc() : super(const ClientState.initial()) {
+  ClientBloc(this.service) : super(const ClientState.initial()) {
     on<_InitialEvent>(_onInitialEvent);
     on<_GetClientsEvent>(_onGetClientsEvent);
     on<_SaveClientEvent>(_onSaveClientEvent);
@@ -34,7 +33,7 @@ class ClientBloc extends Bloc<ClientEvent, ClientState> {
     _SaveClientEvent event,
     Emitter<ClientState> emit,
   ) async {
-    service.sevaClient(event.value);
+    service.addClient();
   }
 
   void _onGetClientsEvent(

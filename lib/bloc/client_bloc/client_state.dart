@@ -6,6 +6,6 @@ class ClientState with _$ClientState {
   const factory ClientState.loading() = _LoadingState;
 
   const factory ClientState.data({
-    required List<ClientModel>? list,
+    required List<ClientModel> list,
   }) = _DataState;
 }

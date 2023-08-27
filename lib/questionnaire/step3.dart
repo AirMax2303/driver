@@ -2,15 +2,15 @@ import 'package:driver/questionnaire/step2.dart';
 import 'package:driver/questionnaire/step4.dart';
 import 'package:driver/widget/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
+import '../Service/driver_service.dart';
 import '../auth/login.dart';
-import '../models/defs.dart';
-import '../models/driver.dart';
+
 
 class Step3 extends StatelessWidget {
-  Step3({Key? key, required this.defs, required this.driver}) : super(key: key);
-  DefsModel defs;
-  late DriverModel driver;
+  Step3({Key? key}) : super(key: key);
+  final DriverService service = GetIt.instance.get<DriverService>();
 
   @override
   Widget build(BuildContext context) {
@@ -34,12 +34,12 @@ class Step3 extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconButton(onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Step2(defs: defs, driver: driver,)));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Step2()));
                         }, color: const Color(0xFFDFDDF5), icon: Image.asset('assets/Vector.png')),
                         AppButton.button16(
                           'Воыйти',
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(defs: defs,)));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
                           },
                         )
                       ],
@@ -74,27 +74,27 @@ class Step3 extends StatelessWidget {
                                 AppText.blackText16('Страна получения*',),
                                 TextFormField(
                                   decoration: const InputDecoration(hintText: 'Выберите страну'),
-                                  onChanged: (value) {driver = driver.copyWith(country: value);},
+                                  onChanged: (value) {service.driver = service.driver.copyWith(country: value);},
                                 ),
                                 AppText.blackText16('Фамилия*',),
                                 TextFormField(
                                   decoration: const InputDecoration(hintText: 'Введите фамилию'),
-                                  onChanged: (value) {driver = driver.copyWith(surname: value);},
+                                  onChanged: (value) {service.driver = service.driver.copyWith(surname: value);},
                                 ),
                                 AppText.blackText16('Имя*',),
                                 TextFormField(
                                   decoration: const InputDecoration(hintText: 'Введите Имя'),
-                                  onChanged: (value) {driver = driver.copyWith(name: value);},
+                                  onChanged: (value) {service.driver = service.driver.copyWith(name: value);},
                                 ),
                                 AppText.blackText16('ВУ (водительского удоставерения)',),
                                 TextFormField(
                                   decoration: const InputDecoration(hintText: 'Введите номер ВУ'),
-                                  onChanged: (value) {driver = driver.copyWith(numberDL: value);},
+                                  onChanged: (value) {service.driver = service.driver.copyWith(numberDL: value);},
                                 ),
                                 AppText.blackText16('Дата выдачи',),
                                 TextFormField(
                                   decoration: const InputDecoration(hintText: '__/__/____'),
-                                  onChanged: (value) {driver = driver.copyWith(dateDL: value);},
+                                  onChanged: (value) {service.driver = service.driver.copyWith(dateDL: value);},
                                 ),
                               ],
                             ),
@@ -106,7 +106,7 @@ class Step3 extends StatelessWidget {
                               child: Column(
                                 children: [
                                   AppButton.filledButton('Далее', onPressed: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => Step4(defs: defs, driver: driver,)));
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => Step4()));
                                   }),
                                   AppSixeBox.size20
                                 ],

@@ -1,14 +1,20 @@
-
+import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../models/driver.dart';
+import '../models/grafic.dart';
 import '../models/model.dart';
 import '../widget/format.dart';
 import '../widget/input_text.dart';
 import '../widget/widgets.dart';
 
+
+String utf8convert(String text) {
+List<int> bytes = text.toString().codeUnits;
+return utf8.decode(bytes);
+}
 
 List<Widget> GraficList(List<GraficElement> grafics, int day) {
   List<Widget> list = [];
@@ -16,7 +22,7 @@ List<Widget> GraficList(List<GraficElement> grafics, int day) {
       grafics[day].routes.length,
           (index) => Card(
         child: ListTile(
-          leading: Text(grafics[day].routes[index].time!),
+          leading: Text(grafics[day].routes[index].gtime!),
           trailing: Text(grafics[day].routes[index].name!),
         ),
       ));
@@ -36,7 +42,7 @@ List<Widget> DriverList(bool show, List<DriverModel> drivers, IndexCallback onTa
             },
             child: ListTile(
                 leading: CircleAvatar(backgroundColor: Colors.white, child: Image.asset('assets/Frame 18.png')),
-                title: Text('${drivers[index].name!} ${drivers[index].surname!}'),
+                title: Text('${drivers[index].name} ${drivers[index].surname}'),
                 trailing: IconButton(
                   onPressed: () {},
                   icon: CircleAvatar(
@@ -59,7 +65,7 @@ class SelectMonth extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset('assets/Left 2.png'),
-        const Text('Июль'),
+        const Text('Август'),
         Image.asset('assets/Right 2.png'),
       ],
     );
@@ -167,10 +173,10 @@ Widget Expenses(int inWeek, int inMonth) {
   );
 }
 
-typedef AddRouteClick = void Function(RouteModel route);
+typedef AddRouteClick = void Function(GraficModel route);
 
 void addRoute(BuildContext context, AddRouteClick addRouteClick) {
-  RouteModel route = RouteModel();
+  GraficModel route = const GraficModel();
 
   showModalBottomSheet<void>(
     context: context,
@@ -223,13 +229,13 @@ void addRoute(BuildContext context, AddRouteClick addRouteClick) {
                         RouteTextFormField(
                           hintText: 'Название маршрута',
                           onChanged: (String value) {
-                            route.name = value;
+                            route = route.copyWith(name: value);
                           },
                         ),
                         RouteTextFormField(
                           hintText: 'От куда (Адрес)',
                           onChanged: (String value) {
-                            route.from = value;
+                            route = route.copyWith(gfrom: value);
                           },
                         ),
                         TextFormField(
@@ -238,7 +244,7 @@ void addRoute(BuildContext context, AddRouteClick addRouteClick) {
                             border: InputBorder.none,
                           ),
                           onChanged: (String value) {
-                            route.to = value;
+                            route = route.copyWith(gto: value);
                           },
                         ),
                       ],
@@ -301,7 +307,7 @@ void addRoute(BuildContext context, AddRouteClick addRouteClick) {
                                         border: InputBorder.none,
                                         hintText: '00:00'),
                                     onChanged: (String value) {
-                                      route.time = value;
+                                      route = route.copyWith(gtime: value);
                                     },
                                   ),
                                 ),

@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 import '../Service/defs_service.dart';
 import '../driver/driver_page.dart';
-import '../models/defs.dart';
-import '../models/model.dart';
 import '../widget/pin.dart';
 import '../widget/widgets.dart';
 
 class PinAuthPage extends StatelessWidget {
-  PinAuthPage({Key? key, required this.defs}) : super(key: key);
-  DefsModel defs;
+  PinAuthPage({Key? key}) : super(key: key);
+  final DefsService service = GetIt.instance.get<DefsService>();
   var pin = <String>['', '', '', ''];
   int _pin = 0;
   late final ValueNotifier<bool> _pinChenge = ValueNotifier<bool>(true);
@@ -86,12 +85,11 @@ class PinAuthPage extends StatelessWidget {
                                           pin[_pin] = number.toString();
                                           _pin = _pin + 1;
                                           if (_pin == 4) {
-                                            if (defs.pin!.isEmpty) {
-                                              final DefsService service = DefsService();
-                                              service.saveDefs(
-                                                  'driver', DefsModel(id: defs.id, pin: pin[0] + pin[1] + pin[2] + pin[3]));
+                                            if (service.defs.pin.isEmpty) {
+                                              service.defs = service.defs.copyWith(pin: pin[0] + pin[1] + pin[2] + pin[3]);
+                                              service.setDefs('driver');
                                             }
-                                            Navigator.push(context, MaterialPageRoute(builder: (context) => const DriverPage()));
+                                            Navigator.push(context, MaterialPageRoute(builder: (context) => DriverPage()));
                                           } else {
                                             _pinChenge.value = !_pinChenge.value;
                                           }

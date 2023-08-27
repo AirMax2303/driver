@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-
+import 'package:get_it/get_it.dart';
+import '../Service/defs_service.dart';
 import '../models/db.dart';
-import '../models/model.dart';
 import '../widget/pin.dart';
 import '../widget/widgets.dart';
 import 'client_grafic.dart';
 
 class ClientPinAuthPage extends StatelessWidget {
-  ClientPinAuthPage({Key? key}) : super(key: key);
+  ClientPinAuthPage({Key? key, required this.header}) : super(key: key);
+  String header;
   var pin = <String>['', '', '', ''];
   int _pin = 0;
   late final ValueNotifier<bool> _pinChenge = ValueNotifier<bool>(true);
@@ -27,12 +28,16 @@ class ClientPinAuthPage extends StatelessWidget {
               Container(
                 width: double.infinity,
                 height: 192,
-                child: Center(child: AppText.blackText20('Задайте код авторизации в приложении ',)),
+                child: Center(
+                  child: AppText.blackText20(
+                    header,
+                  ),
+                ),
               ),
               Expanded(
                 child: Container(
                   decoration:
-                  const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+                      const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     child: ValueListenableBuilder(
@@ -81,7 +86,17 @@ class ClientPinAuthPage extends StatelessWidget {
                                           pin[_pin] = number.toString();
                                           _pin = _pin + 1;
                                           if (_pin == 4) {
-                                            Navigator.push(context, MaterialPageRoute(builder: (context) => ClientGrafic(grafics: grafics, drivers: drivers,)));
+                                            final DefsService service = GetIt.instance.get<DefsService>();
+                                            if (service.defs.pin.isEmpty) {
+                                                service.defs = service.defs.copyWith(pin: pin[0] + pin[1] + pin[2] + pin[3]);
+                                            }
+                                            service.setDefs('client');
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) => ClientGrafic(
+                                                          drivers: drivers,
+                                                        )));
                                           } else {
                                             _pinChenge.value = !_pinChenge.value;
                                           }

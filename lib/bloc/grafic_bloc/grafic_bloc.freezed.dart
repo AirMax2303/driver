@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'defs_bloc.dart';
+part of 'grafic_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,98 +15,77 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$DefsEvent {
-  String get key => throw _privateConstructorUsedError;
+mixin _$GraficEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String key) initial,
-    required TResult Function(String key) saveDefs,
+    required TResult Function(String clientId) initial,
+    required TResult Function(GraficModel grafic) addGrafic,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String key)? initial,
-    TResult? Function(String key)? saveDefs,
+    TResult? Function(String clientId)? initial,
+    TResult? Function(GraficModel grafic)? addGrafic,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String key)? initial,
-    TResult Function(String key)? saveDefs,
+    TResult Function(String clientId)? initial,
+    TResult Function(GraficModel grafic)? addGrafic,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialEvent value) initial,
-    required TResult Function(_SaveDefsEvent value) saveDefs,
+    required TResult Function(_AddGraficEvent value) addGrafic,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_InitialEvent value)? initial,
-    TResult? Function(_SaveDefsEvent value)? saveDefs,
+    TResult? Function(_AddGraficEvent value)? addGrafic,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialEvent value)? initial,
-    TResult Function(_SaveDefsEvent value)? saveDefs,
+    TResult Function(_AddGraficEvent value)? addGrafic,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $DefsEventCopyWith<DefsEvent> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DefsEventCopyWith<$Res> {
-  factory $DefsEventCopyWith(DefsEvent value, $Res Function(DefsEvent) then) =
-      _$DefsEventCopyWithImpl<$Res, DefsEvent>;
-  @useResult
-  $Res call({String key});
+abstract class $GraficEventCopyWith<$Res> {
+  factory $GraficEventCopyWith(
+          GraficEvent value, $Res Function(GraficEvent) then) =
+      _$GraficEventCopyWithImpl<$Res, GraficEvent>;
 }
 
 /// @nodoc
-class _$DefsEventCopyWithImpl<$Res, $Val extends DefsEvent>
-    implements $DefsEventCopyWith<$Res> {
-  _$DefsEventCopyWithImpl(this._value, this._then);
+class _$GraficEventCopyWithImpl<$Res, $Val extends GraficEvent>
+    implements $GraficEventCopyWith<$Res> {
+  _$GraficEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? key = null,
-  }) {
-    return _then(_value.copyWith(
-      key: null == key
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_InitialEventCopyWith<$Res>
-    implements $DefsEventCopyWith<$Res> {
+abstract class _$$_InitialEventCopyWith<$Res> {
   factory _$$_InitialEventCopyWith(
           _$_InitialEvent value, $Res Function(_$_InitialEvent) then) =
       __$$_InitialEventCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({String key});
+  $Res call({String clientId});
 }
 
 /// @nodoc
 class __$$_InitialEventCopyWithImpl<$Res>
-    extends _$DefsEventCopyWithImpl<$Res, _$_InitialEvent>
+    extends _$GraficEventCopyWithImpl<$Res, _$_InitialEvent>
     implements _$$_InitialEventCopyWith<$Res> {
   __$$_InitialEventCopyWithImpl(
       _$_InitialEvent _value, $Res Function(_$_InitialEvent) _then)
@@ -115,12 +94,12 @@ class __$$_InitialEventCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? key = null,
+    Object? clientId = null,
   }) {
     return _then(_$_InitialEvent(
-      null == key
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
+      null == clientId
+          ? _value.clientId
+          : clientId // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -129,14 +108,14 @@ class __$$_InitialEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_InitialEvent implements _InitialEvent {
-  const _$_InitialEvent(this.key);
+  const _$_InitialEvent(this.clientId);
 
   @override
-  final String key;
+  final String clientId;
 
   @override
   String toString() {
-    return 'DefsEvent.initial(key: $key)';
+    return 'GraficEvent.initial(clientId: $clientId)';
   }
 
   @override
@@ -144,11 +123,12 @@ class _$_InitialEvent implements _InitialEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_InitialEvent &&
-            (identical(other.key, key) || other.key == key));
+            (identical(other.clientId, clientId) ||
+                other.clientId == clientId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, key);
+  int get hashCode => Object.hash(runtimeType, clientId);
 
   @JsonKey(ignore: true)
   @override
@@ -159,30 +139,30 @@ class _$_InitialEvent implements _InitialEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String key) initial,
-    required TResult Function(String key) saveDefs,
+    required TResult Function(String clientId) initial,
+    required TResult Function(GraficModel grafic) addGrafic,
   }) {
-    return initial(key);
+    return initial(clientId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String key)? initial,
-    TResult? Function(String key)? saveDefs,
+    TResult? Function(String clientId)? initial,
+    TResult? Function(GraficModel grafic)? addGrafic,
   }) {
-    return initial?.call(key);
+    return initial?.call(clientId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String key)? initial,
-    TResult Function(String key)? saveDefs,
+    TResult Function(String clientId)? initial,
+    TResult Function(GraficModel grafic)? addGrafic,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(key);
+      return initial(clientId);
     }
     return orElse();
   }
@@ -191,7 +171,7 @@ class _$_InitialEvent implements _InitialEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialEvent value) initial,
-    required TResult Function(_SaveDefsEvent value) saveDefs,
+    required TResult Function(_AddGraficEvent value) addGrafic,
   }) {
     return initial(this);
   }
@@ -200,7 +180,7 @@ class _$_InitialEvent implements _InitialEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_InitialEvent value)? initial,
-    TResult? Function(_SaveDefsEvent value)? saveDefs,
+    TResult? Function(_AddGraficEvent value)? addGrafic,
   }) {
     return initial?.call(this);
   }
@@ -209,7 +189,7 @@ class _$_InitialEvent implements _InitialEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialEvent value)? initial,
-    TResult Function(_SaveDefsEvent value)? saveDefs,
+    TResult Function(_AddGraficEvent value)? addGrafic,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -219,107 +199,113 @@ class _$_InitialEvent implements _InitialEvent {
   }
 }
 
-abstract class _InitialEvent implements DefsEvent {
-  const factory _InitialEvent(final String key) = _$_InitialEvent;
+abstract class _InitialEvent implements GraficEvent {
+  const factory _InitialEvent(final String clientId) = _$_InitialEvent;
 
-  @override
-  String get key;
-  @override
+  String get clientId;
   @JsonKey(ignore: true)
   _$$_InitialEventCopyWith<_$_InitialEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SaveDefsEventCopyWith<$Res>
-    implements $DefsEventCopyWith<$Res> {
-  factory _$$_SaveDefsEventCopyWith(
-          _$_SaveDefsEvent value, $Res Function(_$_SaveDefsEvent) then) =
-      __$$_SaveDefsEventCopyWithImpl<$Res>;
-  @override
+abstract class _$$_AddGraficEventCopyWith<$Res> {
+  factory _$$_AddGraficEventCopyWith(
+          _$_AddGraficEvent value, $Res Function(_$_AddGraficEvent) then) =
+      __$$_AddGraficEventCopyWithImpl<$Res>;
   @useResult
-  $Res call({String key});
+  $Res call({GraficModel grafic});
+
+  $GraficModelCopyWith<$Res> get grafic;
 }
 
 /// @nodoc
-class __$$_SaveDefsEventCopyWithImpl<$Res>
-    extends _$DefsEventCopyWithImpl<$Res, _$_SaveDefsEvent>
-    implements _$$_SaveDefsEventCopyWith<$Res> {
-  __$$_SaveDefsEventCopyWithImpl(
-      _$_SaveDefsEvent _value, $Res Function(_$_SaveDefsEvent) _then)
+class __$$_AddGraficEventCopyWithImpl<$Res>
+    extends _$GraficEventCopyWithImpl<$Res, _$_AddGraficEvent>
+    implements _$$_AddGraficEventCopyWith<$Res> {
+  __$$_AddGraficEventCopyWithImpl(
+      _$_AddGraficEvent _value, $Res Function(_$_AddGraficEvent) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? key = null,
+    Object? grafic = null,
   }) {
-    return _then(_$_SaveDefsEvent(
-      null == key
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
-              as String,
+    return _then(_$_AddGraficEvent(
+      null == grafic
+          ? _value.grafic
+          : grafic // ignore: cast_nullable_to_non_nullable
+              as GraficModel,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $GraficModelCopyWith<$Res> get grafic {
+    return $GraficModelCopyWith<$Res>(_value.grafic, (value) {
+      return _then(_value.copyWith(grafic: value));
+    });
   }
 }
 
 /// @nodoc
 
-class _$_SaveDefsEvent implements _SaveDefsEvent {
-  const _$_SaveDefsEvent(this.key);
+class _$_AddGraficEvent implements _AddGraficEvent {
+  const _$_AddGraficEvent(this.grafic);
 
   @override
-  final String key;
+  final GraficModel grafic;
 
   @override
   String toString() {
-    return 'DefsEvent.saveDefs(key: $key)';
+    return 'GraficEvent.addGrafic(grafic: $grafic)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SaveDefsEvent &&
-            (identical(other.key, key) || other.key == key));
+            other is _$_AddGraficEvent &&
+            (identical(other.grafic, grafic) || other.grafic == grafic));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, key);
+  int get hashCode => Object.hash(runtimeType, grafic);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SaveDefsEventCopyWith<_$_SaveDefsEvent> get copyWith =>
-      __$$_SaveDefsEventCopyWithImpl<_$_SaveDefsEvent>(this, _$identity);
+  _$$_AddGraficEventCopyWith<_$_AddGraficEvent> get copyWith =>
+      __$$_AddGraficEventCopyWithImpl<_$_AddGraficEvent>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String key) initial,
-    required TResult Function(String key) saveDefs,
+    required TResult Function(String clientId) initial,
+    required TResult Function(GraficModel grafic) addGrafic,
   }) {
-    return saveDefs(key);
+    return addGrafic(grafic);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String key)? initial,
-    TResult? Function(String key)? saveDefs,
+    TResult? Function(String clientId)? initial,
+    TResult? Function(GraficModel grafic)? addGrafic,
   }) {
-    return saveDefs?.call(key);
+    return addGrafic?.call(grafic);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String key)? initial,
-    TResult Function(String key)? saveDefs,
+    TResult Function(String clientId)? initial,
+    TResult Function(GraficModel grafic)? addGrafic,
     required TResult orElse(),
   }) {
-    if (saveDefs != null) {
-      return saveDefs(key);
+    if (addGrafic != null) {
+      return addGrafic(grafic);
     }
     return orElse();
   }
@@ -328,66 +314,64 @@ class _$_SaveDefsEvent implements _SaveDefsEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialEvent value) initial,
-    required TResult Function(_SaveDefsEvent value) saveDefs,
+    required TResult Function(_AddGraficEvent value) addGrafic,
   }) {
-    return saveDefs(this);
+    return addGrafic(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_InitialEvent value)? initial,
-    TResult? Function(_SaveDefsEvent value)? saveDefs,
+    TResult? Function(_AddGraficEvent value)? addGrafic,
   }) {
-    return saveDefs?.call(this);
+    return addGrafic?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialEvent value)? initial,
-    TResult Function(_SaveDefsEvent value)? saveDefs,
+    TResult Function(_AddGraficEvent value)? addGrafic,
     required TResult orElse(),
   }) {
-    if (saveDefs != null) {
-      return saveDefs(this);
+    if (addGrafic != null) {
+      return addGrafic(this);
     }
     return orElse();
   }
 }
 
-abstract class _SaveDefsEvent implements DefsEvent {
-  const factory _SaveDefsEvent(final String key) = _$_SaveDefsEvent;
+abstract class _AddGraficEvent implements GraficEvent {
+  const factory _AddGraficEvent(final GraficModel grafic) = _$_AddGraficEvent;
 
-  @override
-  String get key;
-  @override
+  GraficModel get grafic;
   @JsonKey(ignore: true)
-  _$$_SaveDefsEventCopyWith<_$_SaveDefsEvent> get copyWith =>
+  _$$_AddGraficEventCopyWith<_$_AddGraficEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-mixin _$DefsState {
+mixin _$GraficState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(DefsModel? defs) data,
+    required TResult Function(List<GraficElement> list) data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(DefsModel? defs)? data,
+    TResult? Function(List<GraficElement> list)? data,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(DefsModel? defs)? data,
+    TResult Function(List<GraficElement> list)? data,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -416,15 +400,16 @@ mixin _$DefsState {
 }
 
 /// @nodoc
-abstract class $DefsStateCopyWith<$Res> {
-  factory $DefsStateCopyWith(DefsState value, $Res Function(DefsState) then) =
-      _$DefsStateCopyWithImpl<$Res, DefsState>;
+abstract class $GraficStateCopyWith<$Res> {
+  factory $GraficStateCopyWith(
+          GraficState value, $Res Function(GraficState) then) =
+      _$GraficStateCopyWithImpl<$Res, GraficState>;
 }
 
 /// @nodoc
-class _$DefsStateCopyWithImpl<$Res, $Val extends DefsState>
-    implements $DefsStateCopyWith<$Res> {
-  _$DefsStateCopyWithImpl(this._value, this._then);
+class _$GraficStateCopyWithImpl<$Res, $Val extends GraficState>
+    implements $GraficStateCopyWith<$Res> {
+  _$GraficStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -441,7 +426,7 @@ abstract class _$$_InitialStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialStateCopyWithImpl<$Res>
-    extends _$DefsStateCopyWithImpl<$Res, _$_InitialState>
+    extends _$GraficStateCopyWithImpl<$Res, _$_InitialState>
     implements _$$_InitialStateCopyWith<$Res> {
   __$$_InitialStateCopyWithImpl(
       _$_InitialState _value, $Res Function(_$_InitialState) _then)
@@ -455,7 +440,7 @@ class _$_InitialState implements _InitialState {
 
   @override
   String toString() {
-    return 'DefsState.initial()';
+    return 'GraficState.initial()';
   }
 
   @override
@@ -472,7 +457,7 @@ class _$_InitialState implements _InitialState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(DefsModel? defs) data,
+    required TResult Function(List<GraficElement> list) data,
   }) {
     return initial();
   }
@@ -482,7 +467,7 @@ class _$_InitialState implements _InitialState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(DefsModel? defs)? data,
+    TResult? Function(List<GraficElement> list)? data,
   }) {
     return initial?.call();
   }
@@ -492,7 +477,7 @@ class _$_InitialState implements _InitialState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(DefsModel? defs)? data,
+    TResult Function(List<GraficElement> list)? data,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -536,7 +521,7 @@ class _$_InitialState implements _InitialState {
   }
 }
 
-abstract class _InitialState implements DefsState {
+abstract class _InitialState implements GraficState {
   const factory _InitialState() = _$_InitialState;
 }
 
@@ -549,7 +534,7 @@ abstract class _$$_LoadingStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadingStateCopyWithImpl<$Res>
-    extends _$DefsStateCopyWithImpl<$Res, _$_LoadingState>
+    extends _$GraficStateCopyWithImpl<$Res, _$_LoadingState>
     implements _$$_LoadingStateCopyWith<$Res> {
   __$$_LoadingStateCopyWithImpl(
       _$_LoadingState _value, $Res Function(_$_LoadingState) _then)
@@ -563,7 +548,7 @@ class _$_LoadingState implements _LoadingState {
 
   @override
   String toString() {
-    return 'DefsState.loading()';
+    return 'GraficState.loading()';
   }
 
   @override
@@ -580,7 +565,7 @@ class _$_LoadingState implements _LoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(DefsModel? defs) data,
+    required TResult Function(List<GraficElement> list) data,
   }) {
     return loading();
   }
@@ -590,7 +575,7 @@ class _$_LoadingState implements _LoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(DefsModel? defs)? data,
+    TResult? Function(List<GraficElement> list)? data,
   }) {
     return loading?.call();
   }
@@ -600,7 +585,7 @@ class _$_LoadingState implements _LoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(DefsModel? defs)? data,
+    TResult Function(List<GraficElement> list)? data,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -644,7 +629,7 @@ class _$_LoadingState implements _LoadingState {
   }
 }
 
-abstract class _LoadingState implements DefsState {
+abstract class _LoadingState implements GraficState {
   const factory _LoadingState() = _$_LoadingState;
 }
 
@@ -654,14 +639,12 @@ abstract class _$$_DataStateCopyWith<$Res> {
           _$_DataState value, $Res Function(_$_DataState) then) =
       __$$_DataStateCopyWithImpl<$Res>;
   @useResult
-  $Res call({DefsModel? defs});
-
-  $DefsModelCopyWith<$Res>? get defs;
+  $Res call({List<GraficElement> list});
 }
 
 /// @nodoc
 class __$$_DataStateCopyWithImpl<$Res>
-    extends _$DefsStateCopyWithImpl<$Res, _$_DataState>
+    extends _$GraficStateCopyWithImpl<$Res, _$_DataState>
     implements _$$_DataStateCopyWith<$Res> {
   __$$_DataStateCopyWithImpl(
       _$_DataState _value, $Res Function(_$_DataState) _then)
@@ -670,40 +653,33 @@ class __$$_DataStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? defs = freezed,
+    Object? list = null,
   }) {
     return _then(_$_DataState(
-      defs: freezed == defs
-          ? _value.defs
-          : defs // ignore: cast_nullable_to_non_nullable
-              as DefsModel?,
+      list: null == list
+          ? _value._list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<GraficElement>,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $DefsModelCopyWith<$Res>? get defs {
-    if (_value.defs == null) {
-      return null;
-    }
-
-    return $DefsModelCopyWith<$Res>(_value.defs!, (value) {
-      return _then(_value.copyWith(defs: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$_DataState implements _DataState {
-  const _$_DataState({required this.defs});
+  const _$_DataState({required final List<GraficElement> list}) : _list = list;
 
+  final List<GraficElement> _list;
   @override
-  final DefsModel? defs;
+  List<GraficElement> get list {
+    if (_list is EqualUnmodifiableListView) return _list;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_list);
+  }
 
   @override
   String toString() {
-    return 'DefsState.data(defs: $defs)';
+    return 'GraficState.data(list: $list)';
   }
 
   @override
@@ -711,11 +687,12 @@ class _$_DataState implements _DataState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DataState &&
-            (identical(other.defs, defs) || other.defs == defs));
+            const DeepCollectionEquality().equals(other._list, _list));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, defs);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_list));
 
   @JsonKey(ignore: true)
   @override
@@ -728,9 +705,9 @@ class _$_DataState implements _DataState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(DefsModel? defs) data,
+    required TResult Function(List<GraficElement> list) data,
   }) {
-    return data(defs);
+    return data(list);
   }
 
   @override
@@ -738,9 +715,9 @@ class _$_DataState implements _DataState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(DefsModel? defs)? data,
+    TResult? Function(List<GraficElement> list)? data,
   }) {
-    return data?.call(defs);
+    return data?.call(list);
   }
 
   @override
@@ -748,11 +725,11 @@ class _$_DataState implements _DataState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(DefsModel? defs)? data,
+    TResult Function(List<GraficElement> list)? data,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(defs);
+      return data(list);
     }
     return orElse();
   }
@@ -792,10 +769,11 @@ class _$_DataState implements _DataState {
   }
 }
 
-abstract class _DataState implements DefsState {
-  const factory _DataState({required final DefsModel? defs}) = _$_DataState;
+abstract class _DataState implements GraficState {
+  const factory _DataState({required final List<GraficElement> list}) =
+      _$_DataState;
 
-  DefsModel? get defs;
+  List<GraficElement> get list;
   @JsonKey(ignore: true)
   _$$_DataStateCopyWith<_$_DataState> get copyWith =>
       throw _privateConstructorUsedError;

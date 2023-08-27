@@ -1,21 +1,17 @@
-import 'package:driver/models/defs.dart';
-import 'package:driver/questionnaire/step2.dart';
-import 'package:driver/questionnaire/step3.dart';
 import 'package:driver/questionnaire/step_sms.dart';
 import 'package:driver/widget/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:uuid/uuid.dart';
+import 'package:get_it/get_it.dart';
 
 import '../Service/defs_service.dart';
+import '../Service/driver_service.dart';
 import '../auth/auth.dart';
 import '../auth/login.dart';
-import '../models/driver.dart';
+
 
 class Step1 extends StatelessWidget {
-  Step1({Key? key, required this.defs, required this.driver}) : super(key: key);
-  DefsModel defs;
-  DriverModel driver;
-
+  Step1({Key? key}) : super(key: key);
+  final DriverService service = GetIt.instance.get<DriverService>();
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +40,7 @@ class Step1 extends StatelessWidget {
                         AppButton.button16(
                           'Воыйти',
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(defs: defs,)));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
                           },
                         )
                       ],
@@ -82,7 +78,7 @@ class Step1 extends StatelessWidget {
                                 AppText.blackText16('Номер телефона*'),
                                 TextFormField(
                                   decoration: const InputDecoration(hintText: 'Введите номер телефона'),
-                                  onChanged: (value) {driver = driver.copyWith(phone: value);},
+                                  onChanged: (value) {service.driver = service.driver.copyWith(phone: value);},
                                 ),
                               ],
                             ),
@@ -94,9 +90,9 @@ class Step1 extends StatelessWidget {
                               child: Column(
                                 children: [
                                   AppButton.filledButton('Отправить код подтверждения', onPressed: () {
-                                    final DefsService service = DefsService();
-                                    service.saveDefs('driver', defs);
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => StepSMS(defs: defs, driver: driver,)));
+                                    final DefsService defs_service = DefsService();
+                                    defs_service.setDefs('driver');
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => StepSMS()));
                                   }),
                                   AppSixeBox.size20
                                 ],

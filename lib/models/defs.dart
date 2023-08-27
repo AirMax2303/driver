@@ -7,8 +7,8 @@ part 'defs.g.dart';
 @freezed
 class DefsModel with _$DefsModel {
   const factory DefsModel({
-    @Default('') String? id,
-    @Default('') String? pin,
+    @Default('') String id,
+    @Default('') String pin,
   }) = _DefsModel;
 
   factory DefsModel.fromJson(Map<String, Object?> json) => _$DefsModelFromJson(json);

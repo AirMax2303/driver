@@ -16,3 +16,14 @@ class ClientModel with _$ClientModel {
 
   factory ClientModel.fromJson(Map<String, Object?> json) => _$ClientModelFromJson(json);
 }
+
+
+/*
+CREATE TABLE clients (
+id text NOT NULL,
+phone text NOT NULL,
+firstName text NOT NULL,
+lastName text NOT NULL,
+password text NOT NULL,
+);
+ */

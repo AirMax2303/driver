@@ -160,6 +160,16 @@ abstract final class AppButton {
     );
   }
 
+  static Widget stdFilledButton(String data, {Key? key, required VoidCallback? onPressed}) {
+    return SizedBox(
+      child: FilledButton(
+        style: AppButtonStyle.stdButtonStyle(),
+        onPressed: onPressed,
+        child: AppText.whiteText18(data),
+      ),
+    );
+  }
+
   static Widget filledButtonIcon(String data, {Key? key, required VoidCallback? onPressed, required Widget icon}) {
     return SizedBox(
       width: double.infinity,

@@ -2,6 +2,8 @@ import 'package:driver/auth/pinauth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:driver/widget/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import '../Service/defs_service.dart';
 import '../bloc/defs_bloc/defs_bloc.dart';
 import '../models/defs.dart';
 import '../models/driver.dart';
@@ -14,7 +16,7 @@ class AuthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<DefsBloc>(
-      create: (context) => DefsBloc()..add(const DefsEvent.initial('driver')),
+      create: (context) => DefsBloc(GetIt.instance.get<DefsService>())..add(const DefsEvent.initial('driver')),
       child: BlocConsumer<DefsBloc, DefsState>(listener: (context, state) {
         state.mapOrNull();
       }, builder: (context, state) {
@@ -57,25 +59,18 @@ class AuthPage extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => Step1(
-                                  defs: defs,
-                                  driver: const DriverModel(),
-                                )));
+                            builder: (context) => Step1()));
                   } else {
                     if (defs.pin!.isEmpty) {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => LoginPage(
-                                    defs: defs,
-                                  )));
+                              builder: (context) => LoginPage()));
                     } else {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => PinAuthPage(
-                                    defs: defs,
-                                  )));
+                              builder: (context) => PinAuthPage()));
                     }
                   }
                 }),
@@ -86,10 +81,7 @@ class AuthPage extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => Step1(
-                                defs: defs,
-                                driver: const DriverModel(),
-                              )));
+                          builder: (context) => Step1()));
                 }),
                 const SizedBox(
                   height: 40,
