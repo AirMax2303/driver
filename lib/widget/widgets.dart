@@ -36,12 +36,12 @@ abstract final class AppText {
     return Text(data!, style: GoogleFonts.nunito());
   }
 
-  static text16(String data) {
-    return Text(data,
-        style: GoogleFonts.nunito(
-          textStyle: AppTextStyle.textStyle16,
-        ));
-  }
+    static text16(String data) {
+      return Text(data,
+          style: GoogleFonts.nunito(
+            textStyle: AppTextStyle.textStyle16,
+          ));
+    }
 
   static text18(String data) {
     return Text(data,
